@@ -98,9 +98,9 @@ export function DraperyMeasureArt() {
       <path d="M332 73 Q335 180 338 322 M320 73 Q321 180 322 322" stroke="#8f4646" strokeWidth="2.6" fill="none" opacity="0.5" />
 
       {/* A: full rod width, past the frame on both sides */}
-      <DimH x1={104} x2={356} y={38} color="#5e7b93" letter="A" />
+      <DimH x1={104} x2={356} y={38} color="#4c6579" letter="A" />
       {/* B: rod height down to the floor */}
-      <DimV x={404} y1={66} y2={330} color="#7d8c6e" letter="B" />
+      <DimV x={404} y1={66} y2={330} color="#57644a" letter="B" />
     </svg>
   );
 }
@@ -123,7 +123,7 @@ export function FloatHemArt() {
     <HemBase label="Panel hem floating about half an inch above the floor">
       <path d="M56 0 Q52 50 50 96 L112 96 Q109 50 108 0 Z" fill="#b05c5c" />
       <path d="M68 0 Q66 50 64 96 M82 0 Q81 50 81 96 M96 0 Q96 50 97 96" stroke="#8f4646" strokeWidth="2.4" fill="none" opacity="0.5" />
-      <path d="M46 100 H116" stroke="#c98d4b" strokeWidth="1.8" strokeDasharray="3 4" />
+      <path d="M46 100 H116" stroke="#96631f" strokeWidth="1.8" strokeDasharray="3 4" />
     </HemBase>
   );
 }
@@ -169,11 +169,11 @@ export function InsideMountArt() {
       <path d="M46 102 Q110 116 174 102 L174 88 Q110 100 46 88 Z" fill="#4c6579" />
 
       {/* width in three places — the middle one is the one you keep */}
-      <DimH x1={46} x2={174} y={122} color="#c98d4b" dashed />
-      <DimH x1={46} x2={174} y={143} color="#c98d4b" letter="W" />
-      <DimH x1={46} x2={174} y={164} color="#c98d4b" dashed />
+      <DimH x1={46} x2={174} y={122} color="#96631f" dashed />
+      <DimH x1={46} x2={174} y={143} color="#96631f" letter="W" />
+      <DimH x1={46} x2={174} y={164} color="#96631f" dashed />
       {/* height of the opening */}
-      <DimV x={62} y1={38} y2={176} color="#7d8c6e" letter="H" />
+      <DimV x={62} y1={38} y2={176} color="#57644a" letter="H" />
     </svg>
   );
 }
@@ -200,8 +200,8 @@ export function OutsideMountArt() {
       <rect x="42" y="42" width="136" height="150" rx="3" fill="none" stroke="#6d675c" strokeWidth="1.8" strokeDasharray="4 5" opacity="0.5" />
 
       {/* overall covered area */}
-      <DimH x1={18} x2={202} y={13} color="#c98d4b" letter="W" />
-      <DimV x={211} y1={26} y2={168} color="#7d8c6e" letter="H" />
+      <DimH x1={18} x2={202} y={13} color="#96631f" letter="W" />
+      <DimV x={211} y1={26} y2={168} color="#57644a" letter="H" />
     </svg>
   );
 }
@@ -219,7 +219,7 @@ export function TapeIcon({ color = 'var(--hue-blue)', size = 34 }) {
   );
 }
 
-export function PencilIcon({ color = 'var(--hue-orange)', size = 34 }) {
+export function PencilIcon({ color = 'var(--hue-orange-deep)', size = 34 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M26 6 H8 V34 H30 V22" />

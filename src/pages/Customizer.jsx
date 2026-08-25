@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import WindowPreview from '../components/WindowPreview.jsx';
 import { TapeIcon } from '../components/MeasureArt.jsx';
+import { HASH_ROUTING } from '../utils/routing.js';
 import {
   TREATMENTS, ROD_FINISHES, FINIALS,
   MOUNT_TYPES, CONTROL_TYPES, LININGS,
@@ -353,15 +354,27 @@ export default function Customizer() {
                 No, I’m confident with my measurements
               </button>
             </div>
-            {/* Target _blank keeps the in-progress design alive in this tab. */}
+            {/* Target _blank keeps the in-progress design alive in this tab.
+                Under the MemoryRouter fallback (sandboxed previews) a _blank
+                href can't resolve, so navigate in-app there instead. */}
             <div className="measure-helper">
               <TapeIcon size={28} />
               <p>
                 <strong>New to measuring?</strong> Our illustrated guide shows
                 exactly where to run the tape — most windows take about ten minutes.
               </p>
-              <Link to={`/measuring-help#${treatmentId}`} target="_blank" rel="noopener">
-                Open the guide ↗
+              <Link
+                to={`/measuring-help#${treatmentId}`}
+                {...(HASH_ROUTING ? { target: '_blank', rel: 'noopener' } : {})}
+              >
+                Open the guide
+                {HASH_ROUTING && (
+                  <>
+                    {' '}
+                    <span aria-hidden="true">↗</span>
+                    <span className="sr-only">(opens in a new tab)</span>
+                  </>
+                )}
               </Link>
             </div>
             {consult === 'no' && (

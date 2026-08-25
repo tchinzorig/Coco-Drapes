@@ -32,6 +32,11 @@
   --accent: var(--hue-blue);
   --accent-dark: #4c6579;
 
+  /* Deep variants that keep >=4.5:1 with white text (and >=3:1 as line
+     art on paper) — use these behind small white labels, not the base hues. */
+  --hue-orange-deep: #96631f;
+  --hue-green-deep: #57644a;
+
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Jost', 'Helvetica Neue', sans-serif;
 
@@ -77,6 +82,17 @@ h1, h2, h3, .display {
   opacity: 0.85;
 }
 .brand-rule--thin { height: 2px; width: 64px; }
+
+/* Visually hidden, still read by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .eyebrow {
   font-size: 12px;
@@ -712,6 +728,9 @@ h1, h2, h3, .display {
   font-weight: 500;
   color: var(--accent-dark);
   white-space: nowrap;
+  /* enlarge the touch target without shifting layout */
+  padding: 14px 0;
+  margin: -14px 0;
 }
 .measure-helper a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
@@ -758,8 +777,11 @@ h1, h2, h3, .display {
 @media (max-width: 640px) {
   .container { padding: 0 20px; }
   .header-inner { padding: 14px 20px; }
+  /* Force the link onto its own row (flex line-breaking won't wrap a
+     flex:1 paragraph on ~400-470px phones otherwise) and align it with
+     the text: 28px icon + 14px gap. */
   .measure-helper { flex-wrap: wrap; }
-  .measure-helper a { margin-left: 48px; }
+  .measure-helper a { flex-basis: calc(100% - 42px); margin-left: 42px; }
   .cart-item { grid-template-columns: 80px 1fr; }
   .cart-item .item-end { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; }
   .footer-inner { grid-template-columns: 1fr; }

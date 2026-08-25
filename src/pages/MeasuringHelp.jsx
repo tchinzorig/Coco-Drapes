@@ -43,17 +43,17 @@ const GOLDEN_RULES = [
     text: 'Always record measurements as width × height — it’s the order our workroom (and our design form) expects.',
   },
   {
-    hue: 'var(--hue-orange)',
+    hue: 'var(--hue-orange-deep)',
     title: 'Measure to the nearest ⅛ inch.',
     text: 'Custom means custom. Read the tape carefully and keep the fraction — never round to “close enough.”',
   },
   {
-    hue: 'var(--hue-green)',
+    hue: 'var(--hue-green-deep)',
     title: 'Measure every window.',
     text: 'Even windows that look like twins can differ by half an inch. Give each one its own line on your paper.',
   },
   {
-    hue: 'var(--hue-blue)',
+    hue: 'var(--accent-dark)',
     title: 'Don’t subtract anything.',
     text: 'Give us the exact numbers off the tape. Our workroom makes every clearance and fullness allowance for you.',
   },
@@ -66,22 +66,22 @@ const GOLDEN_RULES = [
 
 const DRAPERY_STEPS = [
   {
-    hue: '#5e7b93',
+    hue: '#4c6579',
     badge: 'A',
     title: 'Width — measure the rod, not just the window.',
     text: 'Measure your window’s width including the trim, then plan for the rod to extend 4–8″ past the frame on each side. That lets the open panels stack against the wall instead of the glass, so you keep your light — and the window looks larger. Record the full rod width, end to end.',
   },
   {
-    hue: '#7d8c6e',
+    hue: '#57644a',
     badge: 'B',
     title: 'Height — from the rod down to the floor.',
     text: 'Rods usually sit 4–6″ above the frame (or higher for extra drama — halfway to the ceiling is lovely). Measure from where the rod will hang straight down to the floor, in two or three spots. Floors are rarely perfectly level, so keep the smallest number — that way panels never drag.',
   },
   {
-    hue: '#c98d4b',
+    hue: '#96631f',
     badge: 'C',
     title: 'Choose how the hem meets the floor.',
-    text: 'This is taste, not math — just tell us which look you love and we’ll cut the panels to match. Float is the easiest to live with; break is tailored; puddle is romantic.',
+    text: 'This is taste, not math. Float is the easiest to live with; break is tailored; puddle is romantic. Jot your favorite next to your measurements — “48⅛″ × 72″ — break” — or simply tell your associate when they call: every submission gets a personal follow-up.',
   },
 ];
 
@@ -232,21 +232,21 @@ export default function MeasuringHelp() {
               </p>
               <ol className="mstep-list mstep-list--tight">
                 <li>
-                  <span className="mstep-badge" style={{ background: '#c98d4b' }}>W</span>
+                  <span className="mstep-badge" style={{ background: '#96631f' }}>W</span>
                   <div>
                     <strong>Width, in three places.</strong>
                     <p>Measure the exact opening at the top, middle, and bottom. Keep the <em>smallest</em> number — openings are rarely perfect rectangles.</p>
                   </div>
                 </li>
                 <li>
-                  <span className="mstep-badge" style={{ background: '#7d8c6e' }}>H</span>
+                  <span className="mstep-badge" style={{ background: '#57644a' }}>H</span>
                   <div>
                     <strong>Height, in three places.</strong>
                     <p>Measure left, center, and right, from the top of the opening to the sill. Keep the <em>tallest</em> number.</p>
                   </div>
                 </li>
                 <li>
-                  <span className="mstep-badge" style={{ background: '#5e7b93' }}>✓</span>
+                  <span className="mstep-badge" style={{ background: '#4c6579' }}>✓</span>
                   <div>
                     <strong>That’s it — no subtracting.</strong>
                     <p>Send the exact opening size. Our workroom makes the small clearance allowance so the shade glides without rubbing.</p>
@@ -266,21 +266,21 @@ export default function MeasuringHelp() {
               </p>
               <ol className="mstep-list mstep-list--tight">
                 <li>
-                  <span className="mstep-badge" style={{ background: '#c98d4b' }}>W</span>
+                  <span className="mstep-badge" style={{ background: '#96631f' }}>W</span>
                   <div>
                     <strong>Width of the area to cover.</strong>
                     <p>Measure the frame’s outside width, then add at least 1½–2″ on each side so light doesn’t sneak around the edges.</p>
                   </div>
                 </li>
                 <li>
-                  <span className="mstep-badge" style={{ background: '#7d8c6e' }}>H</span>
+                  <span className="mstep-badge" style={{ background: '#57644a' }}>H</span>
                   <div>
                     <strong>Height of the area to cover.</strong>
                     <p>Start 3–4″ above the opening (where the headrail will sit) and measure down to the sill — or below it, if you’d like fuller coverage.</p>
                   </div>
                 </li>
                 <li>
-                  <span className="mstep-badge" style={{ background: '#5e7b93' }}>✓</span>
+                  <span className="mstep-badge" style={{ background: '#4c6579' }}>✓</span>
                   <div>
                     <strong>Record that overall W × H.</strong>
                     <p>The shade will be made exactly the size you give us — the whole covered area, frame and all.</p>
@@ -296,8 +296,9 @@ export default function MeasuringHelp() {
           }}>
             Torn between the two? Deep frame and lovely trim: go inside. Shallow
             frame, small window, or maximum light block: go outside. Or simply
-            pick one in the design studio and mention you’d like advice —
-            we’ll confirm together before anything is cut.
+            pick the one that looks right in the design studio — an associate
+            follows up on every submission, so you can ask for advice then.
+            Nothing is cut until we’ve confirmed together.
           </p>
         </div>
       </section>
@@ -311,7 +312,7 @@ export default function MeasuringHelp() {
             <hr className="brand-rule brand-rule--thin" />
           </div>
           <div className="notation-card">
-            Living room — Window 1: 48⅛″ × 72″<br />
+            Living room — Window 1: 48⅛″ × 72″ — break hem<br />
             Living room — Window 2: 47⅞″ × 72¼″<br />
             Bedroom — Window 3: 36″ × 60″
           </div>
