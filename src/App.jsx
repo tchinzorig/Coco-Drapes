@@ -7,6 +7,7 @@ import Customizer from './pages/Customizer.jsx';
 import Fabrics from './pages/Fabrics.jsx';
 import OurStory from './pages/OurStory.jsx';
 import Services from './pages/Services.jsx';
+import MeasuringHelp from './pages/MeasuringHelp.jsx';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,6 +27,9 @@ export default function App() {
           <Route path="/fabrics" element={<Fabrics />} />
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/services" element={<Services />} />
+          {/* Not linked from the main nav — reached from the design studio
+              and the footer only. */}
+          <Route path="/measuring-help" element={<MeasuringHelp />} />
         </Routes>
       </main>
       <Footer />

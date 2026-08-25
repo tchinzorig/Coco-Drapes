@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Support</h4>
           <Link to="/services">Cleaning &amp; Repair</Link>
-          <a href="mailto:hello@cocodrapes.com">Measuring Help</a>
+          <Link to="/measuring-help">Measuring Help</Link>
           <a href="mailto:hello@cocodrapes.com">Contact Us</a>
         </div>
         <div className="footer-col">

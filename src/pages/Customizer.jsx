@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import WindowPreview from '../components/WindowPreview.jsx';
+import { TapeIcon } from '../components/MeasureArt.jsx';
 import {
   TREATMENTS, ROD_FINISHES, FINIALS,
   MOUNT_TYPES, CONTROL_TYPES, LININGS,
@@ -351,6 +352,17 @@ export default function Customizer() {
               >
                 No, I’m confident with my measurements
               </button>
+            </div>
+            {/* Target _blank keeps the in-progress design alive in this tab. */}
+            <div className="measure-helper">
+              <TapeIcon size={28} />
+              <p>
+                <strong>New to measuring?</strong> Our illustrated guide shows
+                exactly where to run the tape — most windows take about ten minutes.
+              </p>
+              <Link to={`/measuring-help#${treatmentId}`} target="_blank" rel="noopener">
+                Open the guide ↗
+              </Link>
             </div>
             {consult === 'no' && (
               <div style={{
