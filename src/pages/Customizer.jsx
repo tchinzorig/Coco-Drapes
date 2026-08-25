@@ -4,6 +4,7 @@ import WindowPreview from '../components/WindowPreview.jsx';
 import { TapeIcon } from '../components/MeasureArt.jsx';
 import { HASH_ROUTING } from '../utils/routing.js';
 import { COMPANY } from '../data/company.js';
+import { sendFormEmail } from '../utils/sendForm.js';
 import {
   TREATMENTS, ROD_FINISHES, FINIALS,
   MOUNT_TYPES, CONTROL_TYPES, LININGS,
@@ -62,6 +63,7 @@ export default function Customizer() {
   const [consult, setConsult] = useState('');        // 'yes' | 'no'
   const [measurements, setMeasurements] = useState('');
   const [formError, setFormError] = useState('');
+  const [sending, setSending] = useState(false);
 
   // Reset when switching between drapery <-> roman via nav.
   // This must happen DURING render (not in an effect): otherwise the first
@@ -102,7 +104,7 @@ export default function Customizer() {
     setConfig((c) => ({ ...c, fabricColors: [], fabricNotSure: true, previewFabric: undefined }));
   };
 
-  const handleQuoteSubmit = () => {
+  const handleQuoteSubmit = async () => {
     setFormError('');
     if (!contact.firstName.trim() || !contact.lastName.trim()) {
       setFormError('Please enter your first and last name.');
@@ -132,7 +134,48 @@ export default function Customizer() {
       setFormError('Please select the fabric colors you\u2019re interested in, or choose \u201cI\u2019m not sure\u201d.');
       return;
     }
-    setQuoteOpen(true);
+
+    // Everything the customer picked, in the order the form presents it.
+    const details = {
+      'Treatment': treatment.label,
+      'Style': style.label,
+      'Fabric Colors': notSure ? 'Not sure yet' : colors.join(', '),
+      'Lining': LININGS.find((l) => l.id === config.liningId)?.label,
+      ...(treatmentId === 'drapery'
+        ? {
+            'Rod Finish': ROD_FINISHES.find((r) => r.id === config.rodFinishId)?.label,
+            'Finials': FINIALS.find((f) => f.id === config.finialId)?.label,
+          }
+        : {
+            'Mount': MOUNT_TYPES.find((m) => m.id === config.mountId)?.label,
+            'Lift Control': CONTROL_TYPES.find((c) => c.id === config.controlId)?.label,
+          }),
+      'Free Onsite Measurement': consult === 'yes'
+        ? 'Yes \u2014 wants onsite measurement & consultation'
+        : 'No \u2014 provided own measurements',
+      ...(consult === 'no' ? { 'Measurements': measurements } : {}),
+      'Window Count': windowCount,
+      'First Name': contact.firstName,
+      'Last Name': contact.lastName,
+      'Email': contact.email,
+      'City': contact.city,
+      _replyto: contact.email,
+    };
+
+    setSending(true);
+    try {
+      await sendFormEmail(
+        `Quote request \u2014 ${treatment.label} \u2014 ${contact.firstName} ${contact.lastName} (${contact.city})`,
+        details
+      );
+      setQuoteOpen(true);
+    } catch {
+      setFormError(
+        `We couldn\u2019t send your request just now. Please try again in a moment, or call us at ${COMPANY.phoneDisplay}.`
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
 
@@ -477,8 +520,8 @@ export default function Customizer() {
             {formError && (
               <p className="checkout-error" role="alert" style={{ marginTop: 0, marginBottom: 12 }}>{formError}</p>
             )}
-            <button type="button" className="btn btn-primary" onClick={handleQuoteSubmit}>
-              Submit the form
+            <button type="button" className="btn btn-primary" onClick={handleQuoteSubmit} disabled={sending}>
+              {sending ? 'Sending…' : 'Submit the form'}
             </button>
             <p className="price-note">Free shipping · Fit guarantee · Handcrafted to order</p>
           </div>

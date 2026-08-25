@@ -34,8 +34,10 @@ npm run lint       # oxlint
   configuration as pure SVG. It accepts a `config.previewFabric` override,
   which the customizer uses to preview selected fabric *colors*.
 - **No cart / no checkout**: pricing is intentionally not shown. Customizer
-  and Services submissions currently show a confirmation dialog only; they do
-  **not** persist anywhere yet (see Open items).
+  submissions are emailed to the quote inbox via FormSubmit.co
+  (`src/utils/sendForm.js` — the destination address lives there); Services
+  and Careers submissions still show a confirmation dialog only (see Open
+  items).
 - **Catalog**: `src/data/catalog.js` still contains the legacy fabric list and
   pricing model. Only styles/hardware/linings are consumed by the UI today.
 - **Design system**: all tokens and shared classes live in
@@ -51,9 +53,11 @@ domain, or opened directly from disk.
 
 ## Open items for engineering
 
-1. **Wire up form submissions.** Three forms (customizer quote, service
-   request, careers) validate client-side but only show a confirmation. Point
-   them at an endpoint, a form service (Formspree/Basin), or email relay.
+1. **Wire up the remaining form submissions.** The customizer quote form
+   emails via FormSubmit.co (`src/utils/sendForm.js`); the destination
+   address must be activated once by clicking the confirmation link
+   FormSubmit sends on first submission. Service request and careers forms
+   still validate client-side but only show a confirmation.
 2. **Decide the Fabrics page.** It predates the "colors only" direction and
    still shows named fabrics with per-yard prices.
 3. **Pricing model.** When the price formula is ready, `catalog.js` has the
