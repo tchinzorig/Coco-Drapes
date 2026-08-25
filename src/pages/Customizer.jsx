@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import WindowPreview from '../components/WindowPreview.jsx';
 import { TapeIcon } from '../components/MeasureArt.jsx';
 import { HASH_ROUTING } from '../utils/routing.js';
+import { COMPANY } from '../data/company.js';
 import {
   TREATMENTS, ROD_FINISHES, FINIALS,
   MOUNT_TYPES, CONTROL_TYPES, LININGS,
@@ -56,7 +57,7 @@ export default function Customizer() {
 
   const [config, setConfig] = useState(DEFAULT_CONFIG[treatmentId]);
   const [quoteOpen, setQuoteOpen] = useState(false);
-  const [contact, setContact] = useState({ firstName: '', lastName: '', email: '' });
+  const [contact, setContact] = useState({ firstName: '', lastName: '', email: '', city: '' });
   const [windowCount, setWindowCount] = useState('');
   const [consult, setConsult] = useState('');        // 'yes' | 'no'
   const [measurements, setMeasurements] = useState('');
@@ -109,6 +110,10 @@ export default function Customizer() {
     }
     if (!contact.email.trim()) {
       setFormError('Please enter your email address.');
+      return;
+    }
+    if (!contact.city.trim()) {
+      setFormError('Please tell us which Bay Area city you’re in.');
       return;
     }
     if (!windowCount) {
@@ -431,6 +436,15 @@ export default function Customizer() {
                   onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
                   placeholder="you@example.com" autoComplete="email" />
               </div>
+              <div className="field full">
+                <label htmlFor="ct-city">Your city (Bay Area){REQ_STAR}</label>
+                <input id="ct-city" required value={contact.city}
+                  onChange={(e) => setContact((c) => ({ ...c, city: e.target.value }))}
+                  placeholder="e.g. Burlingame" autoComplete="address-level2" />
+                <p style={{ fontSize: 12.5, color: 'var(--ink-faint)', margin: '6px 0 0' }}>
+                  City only — we don’t need your street address to prepare a quote.
+                </p>
+              </div>
             </div>
             <div style={{ marginTop: 18 }}>
               <label style={{
@@ -504,7 +518,11 @@ export default function Customizer() {
               the quote or to reach out for more details.
             </p>
             <p style={{ fontSize: 13.5, color: 'var(--ink-faint)', marginBottom: 24 }}>
-              We appreciate you choosing Coco Drapes.
+              We appreciate you choosing Coco Drapes. Questions in the meantime?
+              Call us at{' '}
+              <a href={COMPANY.phoneHref} style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>
+                {COMPANY.phoneDisplay}
+              </a>.
             </p>
             <button type="button" className="btn btn-primary" onClick={() => setQuoteOpen(false)}>
               Continue Designing

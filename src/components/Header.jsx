@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import { COMPANY } from '../data/company.js';
 
 export default function Header() {
   const navClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`;
@@ -6,7 +7,9 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="announce-bar">
-        Free shipping on every order <em>•</em> Handcrafted to your window <em>•</em> Ships in 10 business days
+        Free shipping on every order <em>•</em> Handcrafted to your window <em>•</em>{' '}
+        Ships in 10 business days <em>•</em>{' '}
+        <a href={COMPANY.phoneHref}>{COMPANY.phoneDisplay}</a>
       </div>
       <div className="header-inner">
         <Link to="/" className="logo" aria-label="Coco Drapes home">

@@ -5,6 +5,13 @@ import {
   InsideMountArt, OutsideMountArt,
   TapeIcon, PencilIcon, StoolIcon, ClockIcon,
 } from '../components/MeasureArt.jsx';
+import { COMPANY } from '../data/company.js';
+
+const PHONE_LINK = (
+  <a href={COMPANY.phoneHref} style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>
+    {COMPANY.phoneDisplay}
+  </a>
+);
 
 /**
  * Measuring Help — a confidence-building guide for first-time measurers.
@@ -60,7 +67,12 @@ const GOLDEN_RULES = [
   {
     hue: 'var(--hue-violet)',
     title: 'When in doubt, ask.',
-    text: 'Onsite measurement is free — choose “Yes” at the measurement step in the design studio and we’ll handle it all.',
+    text: (
+      <>
+        Onsite measurement is free — choose “Yes” at the measurement step in
+        the design studio and we’ll handle it all. Or call us at {PHONE_LINK}.
+      </>
+    ),
   },
 ];
 
@@ -94,7 +106,16 @@ const HEM_OPTIONS = [
 const REASSURE = [
   { hue: 'var(--hue-green)', title: 'Fit guarantee', text: 'If it doesn’t fit, we remake it free. Your tape measure carries no risk.' },
   { hue: 'var(--hue-blue)', title: 'We double-check', text: 'An associate reviews every measurement you send before anything is cut.' },
-  { hue: 'var(--hue-red)', title: 'Free onsite option', text: 'Prefer not to measure at all? Choose “Yes” in the design studio and we’ll come to you.' },
+  {
+    hue: 'var(--hue-red)',
+    title: 'Free onsite option',
+    text: (
+      <>
+        Prefer not to measure at all? Choose “Yes” in the design studio, or
+        call {PHONE_LINK} — we’ll come to you.
+      </>
+    ),
+  },
 ];
 
 export default function MeasuringHelp() {

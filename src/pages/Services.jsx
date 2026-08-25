@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BlindIcon, DraperyIcon, RomanIcon } from '../components/Icons.jsx';
+import { COMPANY } from '../data/company.js';
 
 /**
  * Services — cleaning & repair.
@@ -159,7 +160,11 @@ export default function Services() {
             <h2>Tell us what needs care</h2>
             <p>
               Fill out the form below and our associate will contact you within
-              the next 12 hours. Fields marked with{' '}
+              the next 12 hours. Prefer to talk? Call{' '}
+              <a href={COMPANY.phoneHref} style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>
+                {COMPANY.phoneDisplay}
+              </a>{' '}
+              or visit us at {COMPANY.address}. Fields marked with{' '}
               <span style={{ color: 'var(--hue-red)', fontWeight: 600 }}>*</span> are required.
             </p>
             <hr className="brand-rule brand-rule--thin" />

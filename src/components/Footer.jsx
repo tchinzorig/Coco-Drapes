@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { COMPANY } from '../data/company.js';
 
 export default function Footer() {
   return (
@@ -11,6 +12,12 @@ export default function Footer() {
             Custom drapery and roman shades, handcrafted with care.
             Every window is different. Celebrate yours.
           </p>
+          <div className="footer-contact">
+            <a href={COMPANY.mapsUrl} target="_blank" rel="noopener noreferrer">
+              {COMPANY.address}
+            </a>
+            <a href={COMPANY.phoneHref}>{COMPANY.phoneDisplay}</a>
+          </div>
         </div>
         <div className="footer-col">
           <h4>Shop</h4>
@@ -22,12 +29,13 @@ export default function Footer() {
           <h4>Support</h4>
           <Link to="/services">Cleaning &amp; Repair</Link>
           <Link to="/measuring-help">Measuring Help</Link>
-          <a href="mailto:hello@cocodrapes.com">Contact Us</a>
+          <a href={COMPANY.phoneHref}>Call {COMPANY.phoneDisplay}</a>
+          <a href={`mailto:${COMPANY.email}`}>Contact Us</a>
         </div>
         <div className="footer-col">
           <h4>Company</h4>
           <Link to="/our-story">Our Story</Link>
-          <a href="mailto:hello@cocodrapes.com">Trade Program</a>
+          <a href={`mailto:${COMPANY.email}`}>Trade Program</a>
           <Link to="/our-story#careers">Careers</Link>
         </div>
       </div>

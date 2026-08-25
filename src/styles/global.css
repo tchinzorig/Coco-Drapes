@@ -748,6 +748,9 @@ h1, h2, h3, .display {
 }
 .footer-brand .logo-word { color: var(--paper); font-size: 24px; }
 .footer-brand p { font-size: 14px; margin-top: 14px; max-width: 30ch; color: rgba(250,248,244,0.7); }
+.footer-contact { margin-top: 18px; }
+.footer-contact a { display: block; font-size: 14px; padding: 3px 0; color: rgba(250,248,244,0.78); }
+.footer-contact a:hover { color: var(--paper); }
 .footer-col h4 {
   font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--paper); margin-bottom: 18px; font-weight: 500;
