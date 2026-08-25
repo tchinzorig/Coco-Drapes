@@ -23,7 +23,7 @@ const PLEDGE_STEPS = [
   },
   {
     title: 'We Give 5%',
-    text: 'Five percent of the revenue from your sale goes directly to the foundation you selected. Every order. No exceptions.',
+    text: 'Five percent of the revenue from your sale goes directly to the foundation you selected.',
     Art: GiveArt,
   },
   {
