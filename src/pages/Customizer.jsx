@@ -58,7 +58,7 @@ export default function Customizer() {
 
   const [config, setConfig] = useState(DEFAULT_CONFIG[treatmentId]);
   const [quoteOpen, setQuoteOpen] = useState(false);
-  const [contact, setContact] = useState({ firstName: '', lastName: '', email: '', city: '' });
+  const [contact, setContact] = useState({ firstName: '', lastName: '', email: '', phone: '', city: '' });
   const [windowCount, setWindowCount] = useState('');
   const [consult, setConsult] = useState('');        // 'yes' | 'no'
   const [measurements, setMeasurements] = useState('');
@@ -114,6 +114,10 @@ export default function Customizer() {
       setFormError('Please enter your email address.');
       return;
     }
+    if (!contact.phone.trim()) {
+      setFormError('Please enter your phone number.');
+      return;
+    }
     if (!contact.city.trim()) {
       setFormError('Please tell us which Bay Area city you’re in.');
       return;
@@ -158,6 +162,7 @@ export default function Customizer() {
       'First Name': contact.firstName,
       'Last Name': contact.lastName,
       'Email': contact.email,
+      'Phone': contact.phone,
       'City': contact.city,
       _replyto: contact.email,
     };
@@ -473,11 +478,17 @@ export default function Customizer() {
                   onChange={(e) => setContact((c) => ({ ...c, lastName: e.target.value }))}
                   autoComplete="family-name" />
               </div>
-              <div className="field full">
+              <div className="field">
                 <label htmlFor="ct-email">Email address{REQ_STAR}</label>
                 <input id="ct-email" type="email" required value={contact.email}
                   onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
                   placeholder="you@example.com" autoComplete="email" />
+              </div>
+              <div className="field">
+                <label htmlFor="ct-phone">Phone number{REQ_STAR}</label>
+                <input id="ct-phone" type="tel" required value={contact.phone}
+                  onChange={(e) => setContact((c) => ({ ...c, phone: e.target.value }))}
+                  placeholder="(555) 555-5555" inputMode="tel" autoComplete="tel" />
               </div>
               <div className="field full">
                 <label htmlFor="ct-city">Your city (Bay Area){REQ_STAR}</label>
