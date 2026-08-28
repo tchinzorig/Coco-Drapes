@@ -261,7 +261,7 @@ h1, h2, h3, .display {
 .category-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
 .category-card .card-art { height: 280px; position: relative; }
 .category-card .card-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
-.category-card h3 { font-size: 26px; margin-bottom: 10px; }
+.category-card h3 { font-size: 26px; margin-bottom: 10px; font-weight: 600; }
 .category-card p { color: var(--ink-soft); font-size: 15px; flex: 1; margin-bottom: 22px; }
 .card-link {
   font-size: 12px;
@@ -685,7 +685,7 @@ h1, h2, h3, .display {
   overflow: hidden;
   margin-bottom: 18px;
 }
-.mount-card h3 { font-size: 23px; margin-bottom: 2px; }
+.mount-card h3 { font-size: 23px; margin-bottom: 2px; font-weight: 600; }
 .mount-card .mc-tag {
   font-size: 12px;
   letter-spacing: 0.14em;

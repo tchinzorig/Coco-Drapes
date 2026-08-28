@@ -10,24 +10,29 @@ import { COMPANY } from '../data/company.js';
  * one service checkbox is required, and an optional details textbox.
  */
 
+/* titleHue is a darker variant of hue where the base tone is too light
+   to read as large text on the white card. */
 const SERVICES = [
   {
     hue: 'var(--hue-red)',
+    titleHue: 'var(--hue-red)',
     Icon: BlindIcon,
     title: 'Blind Cleaning & Repair',
-    text: 'All types of blinds: venetian, vertical, mini, wood, faux wood, and cellular. We deep-clean slats and honeycombs, and repair tilt mechanisms, lift cords, wands, and broken slats.',
+    text: 'Venetian, vertical, wood, and cellular — deep-cleaned, with tilt, cord, and slat repairs.',
   },
   {
     hue: 'var(--hue-orange)',
+    titleHue: 'var(--hue-orange-deep)',
     Icon: DraperyIcon,
     title: 'Drapery Cleaning & Repair',
-    text: 'Draperies of every fabric, from linen and cotton to silk, velvet, sheers, and blends. Careful fabric-appropriate cleaning, plus repairs to hems, pleats, linings, hooks, and hardware.',
+    text: 'Every fabric from linen to silk — gentle cleaning plus hem, pleat, lining, and hardware repairs.',
   },
   {
     hue: 'var(--hue-blue)',
+    titleHue: 'var(--accent-dark)',
     Icon: RomanIcon,
     title: 'Roman Shade Cleaning & Repair',
-    text: 'Flat, relaxed, hobbled, and banded roman shades. We clean the fabric gently, re-string lift cords, replace rings and rails, and restore folds so shades raise evenly again.',
+    text: 'Gentle cleaning, re-stringing, and fold restoration so shades raise evenly again.',
   },
 ];
 
@@ -143,7 +148,7 @@ export default function Services() {
                     </div>
                     <div style={{ width: 34, height: 3, borderRadius: 2, background: s.hue, opacity: 0.7 }} />
                   </div>
-                  <h3 style={{ fontSize: 23 }}>{s.title}</h3>
+                  <h3 style={{ fontSize: 24, fontWeight: 600, color: s.titleHue }}>{s.title}</h3>
                   <p style={{ marginBottom: 0 }}>{s.text}</p>
                 </div>
               </div>
