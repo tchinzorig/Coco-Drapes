@@ -6,7 +6,7 @@
  * address below; forwarding starts once that link is clicked. To change
  * the destination, update QUOTE_INBOX (and re-activate the new address).
  */
-const QUOTE_INBOX = 'oscar@shadeservice.com';
+const QUOTE_INBOX = 'nomiko@cocodrapes.com';
 const ENDPOINT = `https://formsubmit.co/ajax/${QUOTE_INBOX}`;
 
 export async function sendFormEmail(subject, fields) {
