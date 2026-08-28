@@ -51,25 +51,21 @@ const STEPS = [
   },
 ];
 
-/* titleHue: darker variant where the base hue is too light for large text. */
 const HOME_SERVICES = [
   {
     hue: 'var(--hue-red)',
-    titleHue: 'var(--hue-red)',
     Icon: BlindIcon,
     title: 'Blind Cleaning & Repair',
     text: 'Venetian, vertical, wood, and cellular blinds, cleaned and restored.',
   },
   {
     hue: 'var(--hue-orange)',
-    titleHue: 'var(--hue-orange-deep)',
     Icon: DraperyIcon,
     title: 'Drapery Cleaning & Repair',
     text: 'Careful, fabric-appropriate cleaning and repair for every drapery.',
   },
   {
     hue: 'var(--hue-blue)',
-    titleHue: 'var(--accent-dark)',
     Icon: RomanIcon,
     title: 'Roman Shade Cleaning & Repair',
     text: 'Gentle cleaning, re-stringing, and fold restoration for roman shades.',
@@ -216,7 +212,7 @@ export default function Home() {
                   }}>
                     <s.Icon color={s.hue} />
                   </div>
-                  <h3 style={{ fontSize: 22, fontWeight: 600, color: s.titleHue }}>{s.title}</h3>
+                  <h3 style={{ fontSize: 22, fontWeight: 600 }}>{s.title}</h3>
                   <p>{s.text}</p>
                   <span className="card-link">Request Service</span>
                 </div>

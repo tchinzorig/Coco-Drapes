@@ -10,26 +10,21 @@ import { COMPANY } from '../data/company.js';
  * one service checkbox is required, and an optional details textbox.
  */
 
-/* titleHue is a darker variant of hue where the base tone is too light
-   to read as large text on the white card. */
 const SERVICES = [
   {
     hue: 'var(--hue-red)',
-    titleHue: 'var(--hue-red)',
     Icon: BlindIcon,
     title: 'Blind Cleaning & Repair',
     text: 'Venetian, vertical, wood, and cellular — deep-cleaned, with tilt, cord, and slat repairs.',
   },
   {
     hue: 'var(--hue-orange)',
-    titleHue: 'var(--hue-orange-deep)',
     Icon: DraperyIcon,
     title: 'Drapery Cleaning & Repair',
     text: 'Every fabric from linen to silk — gentle cleaning plus hem, pleat, lining, and hardware repairs.',
   },
   {
     hue: 'var(--hue-blue)',
-    titleHue: 'var(--accent-dark)',
     Icon: RomanIcon,
     title: 'Roman Shade Cleaning & Repair',
     text: 'Gentle cleaning, re-stringing, and fold restoration so shades raise evenly again.',
@@ -148,7 +143,7 @@ export default function Services() {
                     </div>
                     <div style={{ width: 34, height: 3, borderRadius: 2, background: s.hue, opacity: 0.7 }} />
                   </div>
-                  <h3 style={{ fontSize: 24, fontWeight: 600, color: s.titleHue }}>{s.title}</h3>
+                  <h3 style={{ fontSize: 24, fontWeight: 600 }}>{s.title}</h3>
                   <p style={{ marginBottom: 0 }}>{s.text}</p>
                 </div>
               </div>

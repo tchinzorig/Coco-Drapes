@@ -1,191 +1,169 @@
 /**
- * StoryArt — hand-drawn SVG illustrations for the Our Story page.
- * Drawn in the brand palette so they feel native to the site (like the
- * WindowPreview visualizer) and add zero image-loading weight.
+ * StoryArt — SVG illustrations for the Our Story page.
+ * Elegant, editorial style: flat muted shapes and thin line work in the
+ * brand palette. No image-loading weight, no cartoon figures.
  */
 
-/* A simple smiling person built from rounded shapes. */
-function Person({ x, y, scale = 1, body, skin = '#e8c39e', flip = false }) {
-  return (
-    <g transform={`translate(${x} ${y}) scale(${flip ? -scale : scale} ${scale})`}>
-      {/* body */}
-      <path d="M-26 92 Q-30 30 0 26 Q30 30 26 92 Z" fill={body} />
-      {/* head */}
-      <circle cx="0" cy="0" r="22" fill={skin} />
-      {/* smile */}
-      <path d="M-7 6 Q0 11 7 6" fill="none" stroke="#5a463a" strokeWidth="2" strokeLinecap="round" />
-      {/* eyes */}
-      <circle cx="-7.5" cy="-3" r="2" fill="#5a463a" />
-      <circle cx="7.5" cy="-3" r="2" fill="#5a463a" />
-    </g>
-  );
-}
-
 /**
- * Hero image: a happy family — two parents and a child holding hands —
- * in a warm room with a dressed window and afternoon sun.
+ * Hero image: a calm living room — drapery and a roman shade dressing
+ * two windows, an armchair and a plant in soft afternoon light.
  */
 export function FamilyIllustration() {
   return (
     <svg
       viewBox="0 0 900 380"
       role="img"
-      aria-label="Illustration of a family of three holding hands in a warm room with drapery-dressed windows"
+      aria-label="Illustration of a calm living room: drapery and a roman shade dressing two windows, an armchair and a plant in soft afternoon light"
       style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius)' }}
     >
       {/* room */}
-      <rect width="900" height="380" fill="#f3eee3" />
-      <rect y="300" width="900" height="80" fill="#e0d3b8" />
-      <rect y="300" width="900" height="7" fill="#cdbd9c" />
-      {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-        <line key={i} x1={i * 120 - 40} y1="308" x2={i * 120 - 10} y2="380" stroke="#cbbc9a" strokeWidth="2" />
-      ))}
+      <rect width="900" height="380" fill="#f6f1e8" />
+      <rect y="302" width="900" height="78" fill="#e6dabf" />
+      <rect y="302" width="900" height="4" fill="#d6c7a4" />
 
-      {/* sun through the window */}
-      <circle cx="205" cy="120" r="34" fill="#f0dfae" />
+      {/* soft light falling from the left window */}
+      <polygon points="140,252 300,252 380,332 80,332" fill="#f7ecd4" opacity="0.4" />
 
-      {/* window with drapery, left */}
+      {/* left window with drapery */}
       <g>
-        <rect x="120" y="58" width="170" height="180" rx="4" fill="#dce8ee" stroke="#f7f3ea" strokeWidth="10" />
-        <rect x="198" y="58" width="10" height="180" fill="#f7f3ea" />
-        <rect x="120" y="142" width="170" height="10" fill="#f7f3ea" />
-        <path d="M120 200 Q170 175 205 195 T290 190 V238 H120 Z" fill="#cdd8be" opacity="0.9" />
-        {/* rod + panels */}
-        <rect x="92" y="40" width="228" height="7" rx="3.5" fill="#8a6f52" />
-        <circle cx="92" cy="43" r="8" fill="#8a6f52" />
-        <circle cx="320" cy="43" r="8" fill="#8a6f52" />
-        <path d="M100 47 Q96 150 88 246 L136 246 Q132 150 132 47 Z" fill="#b05c5c" />
-        <path d="M108 47 Q106 150 102 246" stroke="#8f4646" strokeWidth="3" fill="none" opacity="0.5" />
-        <path d="M122 47 Q121 150 120 246" stroke="#8f4646" strokeWidth="3" fill="none" opacity="0.5" />
-        <path d="M312 47 Q316 150 324 246 L276 246 Q280 150 280 47 Z" fill="#b05c5c" />
-        <path d="M304 47 Q306 150 310 246" stroke="#8f4646" strokeWidth="3" fill="none" opacity="0.5" />
-        <path d="M290 47 Q291 150 292 246" stroke="#8f4646" strokeWidth="3" fill="none" opacity="0.5" />
+        <rect x="110" y="60" width="200" height="190" rx="3" fill="#e4edf2" stroke="#f7f3ea" strokeWidth="10" />
+        <rect x="206" y="60" width="8" height="190" fill="#f7f3ea" />
+        <rect x="110" y="151" width="200" height="8" fill="#f7f3ea" />
+        <circle cx="170" cy="112" r="26" fill="#f0e0b0" opacity="0.85" />
+        <rect x="80" y="44" width="260" height="6" rx="3" fill="#8a6f52" />
+        <circle cx="76" cy="47" r="7" fill="#8a6f52" />
+        <circle cx="344" cy="47" r="7" fill="#8a6f52" />
+        <path d="M92 50 Q86 160 82 296 L128 296 Q124 160 124 50 Z" fill="#5e7b93" />
+        <path d="M102 50 Q99 160 96 296 M114 50 Q113 160 112 296" stroke="#4c6579" strokeWidth="2.4" fill="none" opacity="0.45" />
+        <path d="M328 50 Q334 160 338 296 L292 296 Q296 160 296 50 Z" fill="#5e7b93" />
+        <path d="M318 50 Q321 160 324 296 M306 50 Q307 160 308 296" stroke="#4c6579" strokeWidth="2.4" fill="none" opacity="0.45" />
       </g>
 
-      {/* window with roman shade, right */}
+      {/* right window with roman shade */}
       <g>
-        <rect x="660" y="66" width="150" height="164" rx="4" fill="#dce8ee" stroke="#f7f3ea" strokeWidth="10" />
-        <rect x="728" y="66" width="10" height="164" fill="#f7f3ea" />
-        <path d="M660 190 Q705 170 735 186 T810 182 V230 H660 Z" fill="#cdd8be" opacity="0.9" />
-        <rect x="654" y="58" width="162" height="10" rx="3" fill="#6f7f93" />
-        <rect x="658" y="66" width="154" height="78" fill="#5e7b93" />
-        <path d="M658 96 H812 M658 122 H812" stroke="#4c6579" strokeWidth="3" opacity="0.55" />
-        <path d="M658 144 Q735 158 812 144 L812 130 Q735 142 658 130 Z" fill="#4c6579" />
+        <rect x="610" y="70" width="180" height="175" rx="3" fill="#e4edf2" stroke="#f7f3ea" strokeWidth="10" />
+        <rect x="696" y="70" width="8" height="175" fill="#f7f3ea" />
+        <rect x="602" y="56" width="196" height="8" rx="3" fill="#6f7f93" />
+        <rect x="606" y="64" width="188" height="70" fill="#a9b49a" />
+        <path d="M606 90 H794 M606 112 H794" stroke="#7d8c6e" strokeWidth="2.4" opacity="0.5" />
+        <path d="M606 134 Q700 148 794 134 L794 120 Q700 132 606 120 Z" fill="#7d8c6e" />
       </g>
 
-      {/* a single quiet heart above the family */}
-      <path d="M452 84 c -5.5 -7 -17 -3.1 -17 5.4 c 0 7 9.4 12.4 17 17.8 c 7.6 -5.4 17 -10.8 17 -17.8 c 0 -8.5 -11.5 -12.4 -17 -5.4 Z" fill="#b05c5c" opacity="0.65" />
+      {/* armchair */}
+      <g>
+        <path d="M430 234 Q428 172 466 166 L514 166 Q550 172 548 234 Z" fill="#55514a" />
+        <rect x="418" y="228" width="142" height="50" rx="16" fill="#55514a" />
+        <rect x="434" y="212" width="110" height="26" rx="11" fill="#6d675c" />
+        <path d="M432 278 V294 M546 278 V294" stroke="#3a3733" strokeWidth="5" strokeLinecap="round" />
+      </g>
 
-      {/* the family — parent, child, parent holding hands */}
-      <Person x={392} y={210} scale={1.06} body="#5e7b93" skin="#e8c39e" />
-      <Person x={452} y={248} scale={0.72} body="#d4b96a" skin="#f0d0ae" />
-      <Person x={514} y={206} scale={1.1} body="#7d8c6e" skin="#caa07c" />
-      {/* joined hands */}
-      <path d="M414 258 Q432 268 436 272" stroke="#e8c39e" strokeWidth="9" strokeLinecap="round" fill="none" />
-      <path d="M468 272 Q480 266 490 258" stroke="#caa07c" strokeWidth="9" strokeLinecap="round" fill="none" />
+      {/* potted plant */}
+      <g>
+        <path d="M596 268 H628 L623 298 H601 Z" fill="#a86a4e" />
+        <path d="M612 268 Q610 236 604 214 M612 268 Q616 234 624 216 M612 268 Q612 240 612 222" stroke="#7d8c6e" strokeWidth="2.4" fill="none" strokeLinecap="round" />
+        <ellipse cx="602" cy="210" rx="9" ry="5" fill="#a9b49a" transform="rotate(-32 602 210)" />
+        <ellipse cx="626" cy="212" rx="9" ry="5" fill="#7d8c6e" transform="rotate(28 626 212)" />
+        <ellipse cx="612" cy="216" rx="9" ry="5" fill="#a9b49a" transform="rotate(-6 612 216)" />
+      </g>
 
       {/* rug */}
-      <ellipse cx="452" cy="330" rx="200" ry="24" fill="#c9b88a" opacity="0.3" />
+      <ellipse cx="486" cy="320" rx="160" ry="17" fill="#d9c9a8" opacity="0.5" />
     </svg>
   );
 }
 
-/* ------- Pledge step illustrations (square tiles) ------- */
+/* ------- Pledge step illustrations (landscape tiles) ------- */
 
 const TILE = { width: '100%', height: 'auto', display: 'block' };
 
-/** Step 1 — You Design: a window being dressed, with a pencil. */
+/** Step 1 — You Design: a drafted window elevation with dimension lines. */
 export function DesignArt() {
   return (
-    <svg viewBox="0 0 200 150" role="img" aria-label="Designing a window treatment" style={TILE}>
+    <svg viewBox="0 0 200 150" role="img" aria-label="A drafting sketch of a window with dimension lines and a pencil" style={TILE}>
       <rect width="200" height="150" fill="#faf8f4" />
-      <rect x="56" y="26" width="88" height="96" rx="3" fill="#dce8ee" stroke="#e6e0d4" strokeWidth="6" />
-      <rect x="96" y="26" width="8" height="96" fill="#f7f3ea" />
-      <rect x="40" y="16" width="120" height="6" rx="3" fill="#8a6f52" />
-      <circle cx="40" cy="19" r="6" fill="#8a6f52" />
-      <circle cx="160" cy="19" r="6" fill="#8a6f52" />
-      <path d="M48 22 Q44 75 40 122 L66 122 Q64 75 64 22 Z" fill="#b05c5c" />
-      <path d="M152 22 Q156 75 160 122 L134 122 Q136 75 136 22 Z" fill="#5e7b93" />
-      {/* pencil sketching the hem */}
-      <g transform="translate(118 108) rotate(40)">
-        <rect x="0" y="-5" width="44" height="10" rx="2" fill="#d4b96a" />
-        <path d="M-10 0 L0 -5 L0 5 Z" fill="#e8c39e" />
-        <path d="M-10 0 L-5 -2.5 L-5 2.5 Z" fill="#5a463a" />
-        <rect x="38" y="-5" width="6" height="10" fill="#b05c5c" />
+      <rect x="62" y="32" width="76" height="86" fill="none" stroke="#2c2a27" strokeWidth="2" />
+      <path d="M100 32 V118 M62 66 H138" stroke="#2c2a27" strokeWidth="1.5" opacity="0.6" />
+      {/* dimension lines */}
+      <path d="M62 18 H138 M62 13 V23 M138 13 V23" stroke="#5e7b93" strokeWidth="1.8" />
+      <path d="M48 32 V118 M43 32 H53 M43 118 H53" stroke="#5e7b93" strokeWidth="1.8" />
+      {/* sketched hem line */}
+      <path d="M68 128 Q100 134 132 128" stroke="#c9c2b2" strokeWidth="2" strokeDasharray="4 5" fill="none" strokeLinecap="round" />
+      {/* pencil */}
+      <g transform="translate(126 112) rotate(35)">
+        <rect x="0" y="-4.5" width="38" height="9" fill="#faf8f4" stroke="#2c2a27" strokeWidth="1.8" />
+        <path d="M-9 0 L0 -4.5 L0 4.5 Z" fill="#faf8f4" stroke="#2c2a27" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M-9 0 L-5 -2 L-5 2 Z" fill="#2c2a27" />
+        <path d="M0 -1.5 H38 M0 1.5 H38" stroke="#2c2a27" strokeWidth="0.8" opacity="0.4" />
       </g>
-      <path d="M70 132 Q100 140 130 132" stroke="#c9c2b2" strokeWidth="2.5" strokeDasharray="4 5" fill="none" strokeLinecap="round" />
     </svg>
   );
 }
 
-/** Step 2 — You Choose: hearts on a shelf, one picked with a check. */
+/** Step 2 — You Choose: three medallions; the chosen one carries a ribbon. */
 export function ChooseArt() {
   return (
-    <svg viewBox="0 0 200 150" role="img" aria-label="Choosing a foundation to support" style={TILE}>
+    <svg viewBox="0 0 200 150" role="img" aria-label="Three heart medallions, the chosen one marked with an award ribbon" style={TILE}>
       <rect width="200" height="150" fill="#faf8f4" />
-      {[
-        { x: 52, c: '#c98d4b', s: 0.8 },
-        { x: 100, c: '#b05c5c', s: 1.15 },
-        { x: 148, c: '#7b7090', s: 0.8 },
-      ].map(({ x, c, s }, i) => (
-        <g key={i} transform={`translate(${x} 66) scale(${s})`}>
-          <path d="M0 26 C -28 6 -30 -22 -12 -24 C -3 -25 0 -16 0 -12 C 0 -16 3 -25 12 -24 C 30 -22 28 6 0 26 Z" fill={c} opacity={s > 1 ? 1 : 0.55} />
-        </g>
-      ))}
-      {/* selection ring + check on the middle heart */}
-      <circle cx="100" cy="64" r="42" fill="none" stroke="#7d8c6e" strokeWidth="3.5" strokeDasharray="6 7" strokeLinecap="round" />
-      <circle cx="132" cy="34" r="14" fill="#7d8c6e" />
-      <path d="M125 34 l 5 5.5 l 9 -10" stroke="#fff" strokeWidth="3.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M40 122 H160" stroke="#e6e0d4" strokeWidth="4" strokeLinecap="round" />
+      <path d="M30 122 H170" stroke="#e6e0d4" strokeWidth="3" strokeLinecap="round" />
+      {/* side medallions */}
+      <circle cx="52" cy="72" r="19" fill="#fff" stroke="#2c2a27" strokeWidth="1.8" />
+      <path d="M52 80 C 45 74.5 43.5 69 46.5 66.5 C 49 64.7 51.5 66.6 52 68 C 52.5 66.6 55 64.7 57.5 66.5 C 60.5 69 59 74.5 52 80 Z" fill="none" stroke="#b05c5c" strokeWidth="1.7" />
+      <circle cx="148" cy="72" r="19" fill="#fff" stroke="#2c2a27" strokeWidth="1.8" />
+      <path d="M148 80 C 141 74.5 139.5 69 142.5 66.5 C 145 64.7 147.5 66.6 148 68 C 148.5 66.6 151 64.7 153.5 66.5 C 156.5 69 155 74.5 148 80 Z" fill="none" stroke="#b05c5c" strokeWidth="1.7" />
+      {/* chosen medallion with ribbon */}
+      <path d="M92 88 L92 114 L100 106 L108 114 L108 88 Z" fill="#b05c5c" opacity="0.85" />
+      <circle cx="100" cy="66" r="25" fill="#fff" stroke="#2c2a27" strokeWidth="2" />
+      <path d="M100 77 C 90 69.5 88 61.5 92.5 58 C 96 55.4 99.3 58.2 100 60 C 100.7 58.2 104 55.4 107.5 58 C 112 61.5 110 69.5 100 77 Z" fill="#b05c5c" />
     </svg>
   );
 }
 
-/** Step 3 — We Give 5%: an open hand offering a 5% coin. */
+/** Step 3 — We Give 5%: a seal with laurel sprigs. */
 export function GiveArt() {
   return (
-    <svg viewBox="0 0 200 150" role="img" aria-label="Five percent of every sale is donated" style={TILE}>
+    <svg viewBox="0 0 200 150" role="img" aria-label="A five percent seal framed by laurel sprigs" style={TILE}>
       <rect width="200" height="150" fill="#faf8f4" />
-      {/* coin */}
-      <circle cx="100" cy="56" r="34" fill="#d4b96a" />
-      <circle cx="100" cy="56" r="27" fill="none" stroke="#b99b47" strokeWidth="2.5" />
-      <text x="100" y="65" textAnchor="middle" fontFamily="Georgia, serif" fontSize="24" fontWeight="600" fill="#6d5a22">5%</text>
-      {/* sparkle */}
-      <path d="M146 26 l 3 7 l 7 3 l -7 3 l -3 7 l -3 -7 l -7 -3 l 7 -3 Z" fill="#c98d4b" opacity="0.8" />
-      {/* hand */}
-      <path d="M46 118 Q46 100 62 98 L134 92 Q150 91 152 102 Q153 112 140 114 L96 120 L142 120 Q154 121 152 130 Q150 138 138 138 L70 138 Q52 138 46 118 Z" fill="#e8c39e" />
-      <path d="M62 98 Q58 108 66 112" stroke="#d3a97e" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <circle cx="100" cy="70" r="40" fill="#fff" stroke="#2c2a27" strokeWidth="2" />
+      <circle cx="100" cy="70" r="33" fill="none" stroke="#b99b47" strokeWidth="1.5" />
+      <text
+        x="100" y="80" textAnchor="middle"
+        fontFamily="'Cormorant Garamond', Georgia, serif"
+        fontSize="30" fontWeight="600" fill="#2c2a27"
+      >
+        5%
+      </text>
+      {/* laurel sprigs */}
+      <path d="M58 96 Q72 114 96 119" stroke="#7d8c6e" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <ellipse cx="64" cy="101" rx="7" ry="3.5" fill="#a9b49a" transform="rotate(48 64 101)" />
+      <ellipse cx="74" cy="110" rx="7" ry="3.5" fill="#7d8c6e" transform="rotate(32 74 110)" />
+      <ellipse cx="86" cy="116" rx="7" ry="3.5" fill="#a9b49a" transform="rotate(14 86 116)" />
+      <path d="M142 96 Q128 114 104 119" stroke="#7d8c6e" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <ellipse cx="136" cy="101" rx="7" ry="3.5" fill="#a9b49a" transform="rotate(-48 136 101)" />
+      <ellipse cx="126" cy="110" rx="7" ry="3.5" fill="#7d8c6e" transform="rotate(-32 126 110)" />
+      <ellipse cx="114" cy="116" rx="7" ry="3.5" fill="#a9b49a" transform="rotate(-14 114 116)" />
+      <circle cx="150" cy="36" r="2" fill="#d4b96a" />
+      <circle cx="52" cy="42" r="2" fill="#d4b96a" />
     </svg>
   );
 }
 
-/** Step 4 — They Thrive: a child flying a kite under the sun. */
+/** Step 4 — They Thrive: a young sapling growing toward the sun. */
 export function ThriveArt() {
   return (
-    <svg viewBox="0 0 200 150" role="img" aria-label="A child thriving, flying a kite" style={TILE}>
+    <svg viewBox="0 0 200 150" role="img" aria-label="A young sapling growing toward the sun" style={TILE}>
       <rect width="200" height="150" fill="#faf8f4" />
-      <circle cx="164" cy="28" r="16" fill="#f0dfae" />
-      <path d="M20 138 Q100 118 180 138 L180 150 L20 150 Z" fill="#cdd8be" />
-      {/* kite */}
-      <g transform="translate(136 44) rotate(18)">
-        <path d="M0 -24 L18 0 L0 24 L-18 0 Z" fill="#5e7b93" />
-        <path d="M0 -24 L0 24 M-18 0 L18 0" stroke="#4c6579" strokeWidth="2" />
-        <path d="M0 24 q 6 8 0 14 q -6 6 0 12" stroke="#b05c5c" strokeWidth="2.4" fill="none" strokeLinecap="round" />
-      </g>
-      {/* string */}
-      <path d="M120 62 Q92 84 74 100" stroke="#8b857b" strokeWidth="2" fill="none" />
-      {/* child */}
-      <g transform="translate(62 108)">
-        <path d="M-15 34 Q-17 6 0 4 Q17 6 15 34 Z" fill="#c98d4b" />
-        <circle cx="0" cy="-9" r="13" fill="#f0d0ae" />
-        <path d="M-5 -6 Q0 -1.5 5 -6" stroke="#5a463a" strokeWidth="1.8" fill="none" strokeLinecap="round" />
-        <circle cx="-4.5" cy="-11" r="1.5" fill="#5a463a" />
-        <circle cx="4.5" cy="-11" r="1.5" fill="#5a463a" />
-        {/* raised arm to the string */}
-        <path d="M10 10 Q16 0 12 -6" stroke="#c98d4b" strokeWidth="6" strokeLinecap="round" fill="none" />
-      </g>
-      {/* flowers */}
-      <circle cx="120" cy="132" r="3.4" fill="#b05c5c" opacity="0.7" />
+      <circle cx="160" cy="32" r="12" fill="#f0dfae" />
+      <circle cx="160" cy="32" r="17" fill="none" stroke="#d4b96a" strokeWidth="1.5" opacity="0.6" />
+      <path d="M24 124 Q100 112 176 124" stroke="#cdbd9c" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      {/* sapling */}
+      <path d="M100 121 Q98 92 102 68 Q104 54 100 42" stroke="#7d8c6e" strokeWidth="2.4" fill="none" strokeLinecap="round" />
+      <path d="M101 92 Q114 84 121 72" stroke="#7d8c6e" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <path d="M100 76 Q88 70 81 58" stroke="#7d8c6e" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <ellipse cx="123" cy="68" rx="9" ry="4.5" fill="#7d8c6e" transform="rotate(-38 123 68)" />
+      <ellipse cx="79" cy="54" rx="9" ry="4.5" fill="#a9b49a" transform="rotate(42 79 54)" />
+      <ellipse cx="99" cy="36" rx="9" ry="4.5" fill="#7d8c6e" transform="rotate(-78 99 36)" />
+      <ellipse cx="110" cy="84" rx="6" ry="3" fill="#a9b49a" transform="rotate(-30 110 84)" />
+      <ellipse cx="91" cy="68" rx="6" ry="3" fill="#a9b49a" transform="rotate(35 91 68)" />
     </svg>
   );
 }
