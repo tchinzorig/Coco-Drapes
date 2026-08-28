@@ -9,8 +9,8 @@ export default function Footer() {
         <div className="footer-brand">
           <span className="logo-word">COCO <span style={{ fontWeight: 400, fontStyle: 'italic' }}>Drapes</span></span>
           <p>
-            Custom drapery and roman shades, handcrafted with care.
-            Every window is different. Celebrate yours.
+            Custom drapery, roman shades, and upholstery, handcrafted with
+            care. Every home is different. Celebrate yours.
           </p>
           <div className="footer-contact">
             <a href={COMPANY.mapsUrl} target="_blank" rel="noopener noreferrer">
@@ -23,6 +23,7 @@ export default function Footer() {
           <h4>Shop</h4>
           <Link to="/customize/drapery">Custom Drapery</Link>
           <Link to="/customize/roman">Roman Shades</Link>
+          <Link to="/customize/upholstery">Custom Upholstery</Link>
           <Link to="/fabrics">Fabric Collection</Link>
         </div>
         <div className="footer-col">

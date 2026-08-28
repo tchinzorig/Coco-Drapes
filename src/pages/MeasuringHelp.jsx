@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   DraperyMeasureArt, FloatHemArt, BreakHemArt, PuddleHemArt,
-  InsideMountArt, OutsideMountArt,
+  InsideMountArt, OutsideMountArt, UpholsteryMeasureArt,
   TapeIcon, PencilIcon, StoolIcon, ClockIcon,
 } from '../components/MeasureArt.jsx';
 import { COMPANY } from '../data/company.js';
@@ -123,7 +123,7 @@ export default function MeasuringHelp() {
 
   // The design studio links land on #drapery / #roman — scroll to that section.
   useEffect(() => {
-    if (hash === '#drapery' || hash === '#roman') {
+    if (hash === '#drapery' || hash === '#roman' || hash === '#upholstery') {
       const t = setTimeout(() => {
         document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 80);
@@ -151,7 +151,8 @@ export default function MeasuringHelp() {
             lineHeight: 1.45,
             marginBottom: 18,
           }}>
-            Measuring for custom window treatments sounds intimidating.
+            Measuring for custom window treatments — or a favorite piece of
+            furniture — sounds intimidating.
             <em style={{ fontWeight: 400 }}> It isn’t.</em> If you can read a
             tape measure, you can do this.
           </p>
@@ -324,8 +325,58 @@ export default function MeasuringHelp() {
         </div>
       </section>
 
+      {/* ---------------- Upholstery ---------------- */}
+      <section className="section section--warm" id="upholstery" style={{ scrollMarginTop: 110 }}>
+        <div className="container">
+          <div className="section-head">
+            <div className="eyebrow">Custom Upholstery</div>
+            <h2>Three numbers tell the story</h2>
+            <p>
+              Furniture is the most forgiving of all. Your numbers only need to
+              be close — we confirm every detail with you before any fabric
+              is cut.
+            </p>
+            <hr className="brand-rule brand-rule--thin" />
+          </div>
+
+          <div className="measure-duo">
+            <div className="art-card"><UpholsteryMeasureArt /></div>
+            <ol className="mstep-list">
+              <li>
+                <span className="mstep-badge" style={{ background: '#96631f' }}>W</span>
+                <div>
+                  <strong>Width — arm to arm.</strong>
+                  <p>Measure straight across the widest point, usually from the outside of one arm to the outside of the other.</p>
+                </div>
+              </li>
+              <li>
+                <span className="mstep-badge" style={{ background: '#57644a' }}>H</span>
+                <div>
+                  <strong>Height — floor to the top.</strong>
+                  <p>From the floor straight up to the highest point of the back.</p>
+                </div>
+              </li>
+              <li>
+                <span className="mstep-badge" style={{ background: '#4c6579' }}>D</span>
+                <div>
+                  <strong>Depth — front to back.</strong>
+                  <p>Along the side of the piece, from the front edge straight back to the rear.</p>
+                </div>
+              </li>
+              <li>
+                <span className="mstep-badge" style={{ background: '#55514a' }}>✓</span>
+                <div>
+                  <strong>Add the details that matter.</strong>
+                  <p>Say what the piece is — “wingback armchair” tells our workroom more than any number — and count loose cushions. A couple of photos on your phone help too, for when your associate calls.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
       {/* ---------------- Writing it down ---------------- */}
-      <section className="section section--warm" style={{ paddingTop: 72, paddingBottom: 72 }}>
+      <section className="section" style={{ paddingTop: 72, paddingBottom: 72 }}>
         <div className="container" style={{ maxWidth: 640 }}>
           <div className="section-head" style={{ marginBottom: 32 }}>
             <div className="eyebrow">The Last Step</div>
@@ -335,11 +386,13 @@ export default function MeasuringHelp() {
           <div className="notation-card">
             Living room — Window 1: 48⅛″ × 72″ — break hem<br />
             Living room — Window 2: 47⅞″ × 72¼″<br />
-            Bedroom — Window 3: 36″ × 60″
+            Bedroom — Window 3: 36″ × 60″<br />
+            Den — Armchair: 34″W × 36″D × 32″H
           </div>
           <p style={{ fontSize: 14, color: 'var(--ink-faint)', textAlign: 'center', marginTop: 16 }}>
-            Width first, then height — exactly the format the design studio asks
-            for. Naming the room helps you (and us) keep multi-window orders straight.
+            Width first, then height — and for furniture, width × depth ×
+            height — exactly the format the design studio asks for. Naming the
+            room helps you (and us) keep multi-piece orders straight.
           </p>
         </div>
       </section>
@@ -363,6 +416,7 @@ export default function MeasuringHelp() {
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/customize/drapery" className="btn btn-light">Design Drapery</Link>
             <Link to="/customize/roman" className="btn btn-light">Design Roman Shades</Link>
+            <Link to="/customize/upholstery" className="btn btn-light">Design Upholstery</Link>
           </div>
           <p style={{
             textAlign: 'center', fontSize: 13, marginTop: 22,

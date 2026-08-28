@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import WindowPreview from '../components/WindowPreview.jsx';
+import FurniturePreview from '../components/FurniturePreview.jsx';
 import { TapeIcon } from '../components/MeasureArt.jsx';
 import { HASH_ROUTING } from '../utils/routing.js';
 import { COMPANY } from '../data/company.js';
@@ -53,8 +54,9 @@ function shade(hex, amt = 0.16) {
  */
 export default function Customizer() {
   const { treatmentId: param } = useParams();
-  const treatmentId = param === 'roman' ? 'roman' : 'drapery';
+  const treatmentId = param === 'roman' || param === 'upholstery' ? param : 'drapery';
   const treatment = TREATMENTS[treatmentId];
+  const isUpholstery = treatmentId === 'upholstery';
 
   const [config, setConfig] = useState(DEFAULT_CONFIG[treatmentId]);
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -123,7 +125,9 @@ export default function Customizer() {
       return;
     }
     if (!windowCount) {
-      setFormError('Please tell us how many windows you\u2019d like covered.');
+      setFormError(isUpholstery
+        ? 'Please tell us how many pieces you\u2019d like upholstered.'
+        : 'Please tell us how many windows you\u2019d like covered.');
       return;
     }
     if (!consult) {
@@ -131,7 +135,9 @@ export default function Customizer() {
       return;
     }
     if (consult === 'no' && !measurements.trim()) {
-      setFormError('Please list the width \u00d7 height measurements for each of your windows.');
+      setFormError(isUpholstery
+        ? 'Please describe each piece and its approximate measurements.'
+        : 'Please list the width \u00d7 height measurements for each of your windows.');
       return;
     }
     if (colors.length === 0 && !notSure) {
@@ -142,23 +148,25 @@ export default function Customizer() {
     // Everything the customer picked, in the order the form presents it.
     const details = {
       'Treatment': treatment.label,
-      'Style': style.label,
+      [isUpholstery ? 'Piece' : 'Style']: style.label,
       'Fabric Colors': notSure ? 'Not sure yet' : colors.join(', '),
-      'Lining': LININGS.find((l) => l.id === config.liningId)?.label,
+      ...(!isUpholstery ? { 'Lining': LININGS.find((l) => l.id === config.liningId)?.label } : {}),
       ...(treatmentId === 'drapery'
         ? {
             'Rod Finish': ROD_FINISHES.find((r) => r.id === config.rodFinishId)?.label,
             'Finials': FINIALS.find((f) => f.id === config.finialId)?.label,
           }
-        : {
-            'Mount': MOUNT_TYPES.find((m) => m.id === config.mountId)?.label,
-            'Lift Control': CONTROL_TYPES.find((c) => c.id === config.controlId)?.label,
-          }),
+        : treatmentId === 'roman'
+          ? {
+              'Mount': MOUNT_TYPES.find((m) => m.id === config.mountId)?.label,
+              'Lift Control': CONTROL_TYPES.find((c) => c.id === config.controlId)?.label,
+            }
+          : {}),
       'Free Onsite Measurement': consult === 'yes'
-        ? 'Yes \u2014 wants onsite measurement & consultation'
+        ? `Yes \u2014 wants onsite ${isUpholstery ? 'assessment' : 'measurement'} & consultation`
         : 'No \u2014 provided own measurements',
       ...(consult === 'no' ? { 'Measurements': measurements } : {}),
-      'Window Count': windowCount,
+      [isUpholstery ? 'Piece Count' : 'Window Count']: windowCount,
       'First Name': contact.firstName,
       'Last Name': contact.lastName,
       'Email': contact.email,
@@ -190,7 +198,7 @@ export default function Customizer() {
         {/* ---------------- Live preview ---------------- */}
         <div className="customizer-preview">
           <div className="preview-stage">
-            <WindowPreview config={config} />
+            {isUpholstery ? <FurniturePreview config={config} /> : <WindowPreview config={config} />}
           </div>
           <div className="preview-caption">
             <strong>
@@ -206,9 +214,9 @@ export default function Customizer() {
           <div className="eyebrow">Design Studio</div>
           <h1>{treatment.label}</h1>
           <p className="sub">
-            {treatmentId === 'drapery'
-              ? 'Made-to-measure panels, sewn to the quarter inch.'
-              : 'Clean-folding shades, built for your exact window.'}
+            {treatmentId === 'drapery' && 'Made-to-measure panels, sewn to the quarter inch.'}
+            {treatmentId === 'roman' && 'Clean-folding shades, built for your exact window.'}
+            {isUpholstery && 'Furniture you love, reborn in fabric you choose.'}
           </p>
 
           {/* Treatment switcher */}
@@ -217,13 +225,14 @@ export default function Customizer() {
             <div className="pill-row">
               <Link to="/customize/drapery" className={`pill${treatmentId === 'drapery' ? ' selected' : ''}`}>Drapery</Link>
               <Link to="/customize/roman" className={`pill${treatmentId === 'roman' ? ' selected' : ''}`}>Roman Shade</Link>
+              <Link to="/customize/upholstery" className={`pill${isUpholstery ? ' selected' : ''}`}>Upholstery</Link>
             </div>
           </div>
 
-          {/* Style */}
+          {/* Style / piece */}
           <div className="opt-group">
             <div className="opt-label">
-              <span>Style</span>
+              <span>{isUpholstery ? 'Piece' : 'Style'}</span>
               <span className="opt-selected">{style.label}</span>
             </div>
             <div className="style-grid">
@@ -283,23 +292,25 @@ export default function Customizer() {
             </div>
           </div>
 
-          {/* Lining */}
-          <div className="opt-group">
-            <div className="opt-label"><span>Lining</span></div>
-            <div className="pill-row">
-              {LININGS.map((l) => (
-                <button
-                  key={l.id}
-                  type="button"
-                  className={`pill${config.liningId === l.id ? ' selected' : ''}`}
-                  onClick={() => set('liningId')(l.id)}
-                  title={l.description}
-                >
-                  {l.label}
-                </button>
-              ))}
+          {/* Lining — window treatments only */}
+          {!isUpholstery && (
+            <div className="opt-group">
+              <div className="opt-label"><span>Lining</span></div>
+              <div className="pill-row">
+                {LININGS.map((l) => (
+                  <button
+                    key={l.id}
+                    type="button"
+                    className={`pill${config.liningId === l.id ? ' selected' : ''}`}
+                    onClick={() => set('liningId')(l.id)}
+                    title={l.description}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Hardware — drapery */}
           {treatmentId === 'drapery' && (
@@ -389,7 +400,9 @@ export default function Customizer() {
               <span>Measurement</span>
             </div>
             <p style={{ fontSize: 14, color: 'var(--ink-soft)', margin: '-4px 0 14px' }}>
-              Would you like a free onsite measurement and sales consultation?
+              {isUpholstery
+                ? 'Would you like a free onsite assessment and sales consultation?'
+                : 'Would you like a free onsite measurement and sales consultation?'}
             </p>
             <div className="pill-row">
               <button
@@ -414,7 +427,7 @@ export default function Customizer() {
               <TapeIcon size={28} />
               <p>
                 <strong>New to measuring?</strong> Our illustrated guide shows
-                exactly where to run the tape — most windows take about ten minutes.
+                exactly where to run the tape — most measuring takes about ten minutes.
               </p>
               <Link
                 to={`/measuring-help#${treatmentId}`}
@@ -440,14 +453,18 @@ export default function Customizer() {
                   display: 'block', fontSize: 13.5, color: 'var(--ink)',
                   marginBottom: 10, fontWeight: 500,
                 }}>
-                  For each of your windows, please specify the width × height measurements.
+                  {isUpholstery
+                    ? 'For each piece, tell us what it is and its approximate width × depth × height.'
+                    : 'For each of your windows, please specify the width × height measurements.'}
                 </label>
                 <textarea
                   id="dim-list"
                   rows={3}
                   value={measurements}
                   onChange={(e) => setMeasurements(e.target.value)}
-                  placeholder={'Window 1: 48″ × 72″\nWindow 2: 36″ × 60″\n…'}
+                  placeholder={isUpholstery
+                    ? 'Armchair: 34″W × 36″D × 32″H\nDining chairs (4): seats 19″W × 18″D\n…'
+                    : 'Window 1: 48″ × 72″\nWindow 2: 36″ × 60″\n…'}
                   style={{
                     width: '100%', padding: '12px 14px',
                     border: '1px solid var(--line)', borderRadius: 'var(--radius)',
@@ -505,7 +522,9 @@ export default function Customizer() {
                 display: 'block', fontSize: 12.5, letterSpacing: '0.08em',
                 color: 'var(--ink-faint)', marginBottom: 8,
               }}>
-                How many windows would you like covered?{REQ_STAR}
+                {isUpholstery
+                  ? 'How many pieces would you like upholstered?'
+                  : 'How many windows would you like covered?'}{REQ_STAR}
               </label>
               <div className="pill-row">
                 {WINDOW_COUNT_OPTIONS.map((w) => (
@@ -515,7 +534,7 @@ export default function Customizer() {
                     className={`pill${windowCount === w ? ' selected' : ''}`}
                     onClick={() => setWindowCount(w)}
                   >
-                    {w} windows
+                    {w} {isUpholstery ? 'pieces' : 'windows'}
                   </button>
                 ))}
               </div>
@@ -526,7 +545,7 @@ export default function Customizer() {
           <div className="price-summary">
             <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', marginBottom: 16 }}>
               Happy with your design? Submit it to us and our associate will
-              prepare a personalized quote for your exact windows.
+              prepare a personalized quote for your exact {isUpholstery ? 'pieces' : 'windows'}.
             </p>
             {formError && (
               <p className="checkout-error" role="alert" style={{ marginTop: 0, marginBottom: 12 }}>{formError}</p>
@@ -534,7 +553,11 @@ export default function Customizer() {
             <button type="button" className="btn btn-primary" onClick={handleQuoteSubmit} disabled={sending}>
               {sending ? 'Sending…' : 'Submit the form'}
             </button>
-            <p className="price-note">Free shipping · Fit guarantee · Handcrafted to order</p>
+            <p className="price-note">
+              {isUpholstery
+                ? 'Fit guarantee · Handcrafted to order · Personal follow-up on every request'
+                : 'Free shipping · Fit guarantee · Handcrafted to order'}
+            </p>
           </div>
         </div>
       </div>

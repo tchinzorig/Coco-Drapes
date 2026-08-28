@@ -7,8 +7,8 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="announce-bar">
-        Free shipping on every order <em>•</em> Handcrafted to your window <em>•</em>{' '}
-        Ships in 10 business days <em>•</em>{' '}
+        Handcrafted in our Burlingame workroom <em>•</em>{' '}
+        Free onsite measurement &amp; consultation <em>•</em>{' '}
         <a href={COMPANY.phoneHref}>{COMPANY.phoneDisplay}</a>
       </div>
       <div className="header-inner">
@@ -20,6 +20,7 @@ export default function Header() {
         <nav className="main-nav" aria-label="Primary">
           <NavLink to="/customize/drapery" className={navClass}>Drapery</NavLink>
           <NavLink to="/customize/roman" className={navClass}>Roman Shades</NavLink>
+          <NavLink to="/customize/upholstery" className={navClass}>Upholstery</NavLink>
           <NavLink to="/fabrics" className={navClass}>Fabrics</NavLink>
           <NavLink to="/services" className={navClass}>Services</NavLink>
           <NavLink to="/our-story" className={navClass}>Our Story</NavLink>

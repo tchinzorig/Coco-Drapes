@@ -206,6 +206,46 @@ export function OutsideMountArt() {
   );
 }
 
+/* ---------------- Upholstery: width, height, and depth ---------------- */
+
+export function UpholsteryMeasureArt() {
+  return (
+    <svg
+      viewBox="0 0 460 360"
+      role="img"
+      aria-label="Diagram of an armchair: arrow W spans the arms, arrow H runs floor to back, and a side view shows depth D from front to back"
+      style={TILE}
+    >
+      <rect width="460" height="360" fill="#faf8f4" />
+      {/* floor */}
+      <rect y="300" width="460" height="60" fill="#e0d3b8" />
+      <rect y="300" width="460" height="5" fill="#cdbd9c" />
+
+      {/* front view: armchair */}
+      <g>
+        <rect x="88" y="128" width="150" height="112" rx="20" fill="#a9b49a" />
+        <path d="M112 150 V225 M214 150 V225" stroke="#7d8c6e" strokeWidth="2.2" opacity="0.5" />
+        <rect x="60" y="170" width="48" height="96" rx="16" fill="#a9b49a" />
+        <rect x="218" y="170" width="48" height="96" rx="16" fill="#a9b49a" />
+        <rect x="88" y="238" width="150" height="32" rx="10" fill="#94a385" />
+        <path d="M76 268 V298 M250 268 V298" stroke="#6b5138" strokeWidth="7" strokeLinecap="round" />
+      </g>
+      {/* W: outside arm to outside arm */}
+      <DimH x1={60} x2={266} y={98} color="#96631f" letter="W" />
+      {/* H: floor to the top of the back */}
+      <DimV x={302} y1={128} y2={300} color="#57644a" letter="H" />
+
+      {/* side view silhouette */}
+      <g>
+        <path d="M356 150 H382 V216 H428 Q444 216 444 232 V270 H356 Z" fill="#b9c2ac" />
+        <path d="M366 270 V298 M436 270 V298" stroke="#6b5138" strokeWidth="6" strokeLinecap="round" />
+      </g>
+      {/* D: front edge straight back */}
+      <DimH x1={356} x2={444} y={324} color="#4c6579" letter="D" />
+    </svg>
+  );
+}
+
 /* ---------------- Small tool icons (line style, brand hues) ---------------- */
 
 export function TapeIcon({ color = 'var(--hue-blue)', size = 34 }) {

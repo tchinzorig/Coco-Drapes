@@ -73,6 +73,49 @@ export const TREATMENTS = {
       },
     ],
   },
+  upholstery: {
+    id: 'upholstery',
+    label: 'Custom Upholstery',
+    basePrice: 249, // per piece, base labor
+    styles: [
+      {
+        id: 'up-armchair',
+        label: 'Armchair',
+        description: 'Club and accent chairs, rebuilt from cushion to frame.',
+        priceModifier: 1.0,
+      },
+      {
+        id: 'up-sofa',
+        label: 'Sofa',
+        description: 'Two- and three-seat sofas, recovered edge to edge.',
+        priceModifier: 2.2,
+      },
+      {
+        id: 'up-dining',
+        label: 'Dining Chairs',
+        description: 'Seat and back recovering that revives a whole set.',
+        priceModifier: 0.5,
+      },
+      {
+        id: 'up-ottoman',
+        label: 'Ottoman & Bench',
+        description: 'Ottomans, benches, and stools — tailored tight or tufted.',
+        priceModifier: 0.7,
+      },
+      {
+        id: 'up-headboard',
+        label: 'Headboard',
+        description: 'Plain, channeled, or tufted upholstered headboards.',
+        priceModifier: 1.2,
+      },
+      {
+        id: 'up-cushions',
+        label: 'Cushions & Pillows',
+        description: 'New covers for loose cushions, window seats, and pillows.',
+        priceModifier: 0.4,
+      },
+    ],
+  },
 };
 
 /* ---------------------------------------------------------------- *
@@ -237,6 +280,12 @@ export const DEFAULT_CONFIG = {
     controlId: 'ct-cordless',
     widthIn: 36,
     heightIn: 60,
+    panels: 1,
+  },
+  upholstery: {
+    treatmentId: 'upholstery',
+    styleId: 'up-armchair',
+    fabricId: 'fb-sage-linen',
     panels: 1,
   },
 };

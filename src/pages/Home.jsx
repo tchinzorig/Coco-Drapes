@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import WindowPreview from '../components/WindowPreview.jsx';
+import FurniturePreview from '../components/FurniturePreview.jsx';
 import {
   DesignIcon, MeasureIcon, SewIcon, InstallIcon,
   BlindIcon, DraperyIcon, RomanIcon, HeartMark,
@@ -25,6 +26,10 @@ const CARD_CONFIGS = {
     treatmentId: 'roman', styleId: 'relaxed', fabricId: 'fb-sage-linen',
     liningId: 'ln-privacy', mountId: 'mt-inside', controlId: 'ct-cordless',
     widthIn: 36, heightIn: 60, panels: 1,
+  },
+  upholstery: {
+    treatmentId: 'upholstery', styleId: 'up-armchair', fabricId: 'fb-clay-linen',
+    panels: 1,
   },
 };
 
@@ -91,15 +96,17 @@ export default function Home() {
         </div>
         <div className="container">
           <div className="hero-content">
-            <div className="eyebrow">Custom Window Treatments</div>
+            <div className="eyebrow">Custom Window Treatments &amp; Upholstery</div>
             <h1>Every window is <em>different.</em> Celebrate yours.</h1>
             <p className="lede">
-              Design custom drapery and roman shades in minutes. Choose your style,
-              colors, and hardware, then watch your window come to life before you order.
+              Design custom drapery, roman shades, and upholstery in minutes.
+              Choose your style and colors, then watch your design come to life
+              before you order.
             </p>
             <div className="hero-ctas">
               <Link to="/customize/drapery" className="btn btn-primary">Design Drapery</Link>
               <Link to="/customize/roman" className="btn btn-outline">Design Roman Shades</Link>
+              <Link to="/customize/upholstery" className="btn btn-outline">Design Upholstery</Link>
             </div>
           </div>
         </div>
@@ -119,7 +126,7 @@ export default function Home() {
           <div className="section-head">
             <div className="eyebrow">What We Make</div>
             <h2>Tailored for your home</h2>
-            <p>Two signatures, endless combinations. Start with a style, make it entirely yours.</p>
+            <p>Three signatures, endless combinations. Start with a style, make it entirely yours.</p>
             <hr className="brand-rule brand-rule--thin" />
           </div>
           <div className="category-grid">
@@ -141,6 +148,17 @@ export default function Home() {
                 <p>
                   Flat, relaxed, hobbled, or banded. Clean-folding shades with
                   cordless, continuous-loop, or motorized lift.
+                </p>
+                <span className="card-link">Start Designing</span>
+              </div>
+            </Link>
+            <Link to="/customize/upholstery" className="category-card">
+              <div className="card-art"><FurniturePreview config={CARD_CONFIGS.upholstery} /></div>
+              <div className="card-body">
+                <h3>Custom Upholstery</h3>
+                <p>
+                  Sofas, chairs, ottomans, headboards, and cushions, recovered
+                  in fabrics that match your windows.
                 </p>
                 <span className="card-link">Start Designing</span>
               </div>
