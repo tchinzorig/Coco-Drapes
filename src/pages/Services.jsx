@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BlindIcon, DraperyIcon, RomanIcon } from '../components/Icons.jsx';
 import { COMPANY } from '../data/company.js';
+import { sendFormEmail } from '../utils/sendForm.js';
 
 /**
  * Services — cleaning & repair.
@@ -51,6 +52,7 @@ export default function Services() {
   const [selected, setSelected] = useState([]);
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const setField = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -58,7 +60,7 @@ export default function Services() {
     setSelected((prev) => (prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     if (!form.firstName.trim() || !form.lastName.trim()) {
@@ -77,8 +79,36 @@ export default function Services() {
       setError('Please select at least one service you are interested in.');
       return;
     }
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    const serviceLabels = SERVICE_OPTIONS
+      .filter((opt) => selected.includes(opt.id))
+      .map((opt) => opt.label)
+      .join(', ');
+
+    setSending(true);
+    try {
+      await sendFormEmail(
+        `Service request — ${form.firstName} ${form.lastName}`,
+        {
+          'Request Type': 'Cleaning & Repair',
+          'Services': serviceLabels,
+          ...(form.details.trim() ? { 'Details': form.details } : {}),
+          'First Name': form.firstName,
+          'Last Name': form.lastName,
+          'Email': form.email,
+          'Phone': form.phone,
+          _replyto: form.email,
+        }
+      );
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch {
+      setError(
+        `We couldn’t send your request just now. Please try again in a moment, or call us at ${COMPANY.phoneDisplay}.`
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -289,8 +319,8 @@ export default function Services() {
 
             {error && <p className="checkout-error" role="alert">{error}</p>}
 
-            <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: 24 }}>
-              Request Service
+            <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: 24 }} disabled={sending}>
+              {sending ? 'Sending…' : 'Request Service'}
             </button>
             <p className="price-note" style={{ marginTop: 14 }}>
               Our associate will contact you within the next 12 hours.
