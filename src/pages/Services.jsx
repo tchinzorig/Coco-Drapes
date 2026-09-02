@@ -126,7 +126,7 @@ export default function Services() {
         <h1>Thank you, {form.firstName}!</h1>
         <p>
           Your service request has been received. Our associate will contact you
-          within the next 12 hours to discuss your{' '}
+          within the next 6 hours to discuss your{' '}
           {selected.length === 1 ? 'service' : 'services'} and schedule a visit.
         </p>
         <p style={{ fontSize: 14, color: 'var(--ink-faint)' }}>
@@ -200,7 +200,7 @@ export default function Services() {
             <h2>Tell us what needs care</h2>
             <p>
               Fill out the form below and our associate will contact you within
-              the next 12 hours. Prefer to talk? Call{' '}
+              the next 6 hours. Prefer to talk? Call{' '}
               <a href={COMPANY.phoneHref} style={{ textDecoration: 'underline', textUnderlineOffset: 3 }}>
                 {COMPANY.phoneDisplay}
               </a>{' '}
@@ -333,7 +333,7 @@ export default function Services() {
               {sending ? 'Sending…' : 'Request Service'}
             </button>
             <p className="price-note" style={{ marginTop: 14 }}>
-              Our associate will contact you within the next 12 hours.
+              Our associate will contact you within the next 6 hours.
             </p>
           </form>
         </div>

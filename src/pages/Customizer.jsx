@@ -473,7 +473,7 @@ export default function Customizer() {
                   }}
                 />
                 <p style={{ fontSize: 12.5, color: 'var(--ink-faint)', marginTop: 10 }}>
-                  Our associate will contact you to discuss your project within the next 12 hours.
+                  Our associate will contact you to discuss your project within the next 6 hours.
                 </p>
               </div>
             )}
@@ -591,7 +591,7 @@ export default function Customizer() {
             <h2 id="quote-title" style={{ fontSize: 26, marginBottom: 12 }}>Thank you{contact.firstName ? `, ${contact.firstName}` : ''}!</h2>
             <p style={{ color: 'var(--ink-soft)', marginBottom: 8 }}>
               Your design has been submitted. Our associate will contact you at{' '}
-              {contact.email || 'your email'} within the next 12 hours to provide
+              {contact.email || 'your email'} within the next 6 hours to provide
               the quote or to reach out for more details.
             </p>
             <p style={{ fontSize: 13.5, color: 'var(--ink-faint)', marginBottom: 24 }}>
