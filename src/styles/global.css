@@ -179,7 +179,8 @@ h1, h2, h3, .display {
   max-width: var(--maxw);
   margin: 0 auto;
 }
-.logo { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.logo { display: flex; align-items: center; }
+.logo img { height: 52px; width: auto; display: block; }
 .logo-word {
   font-family: var(--font-display);
   font-size: 27px;
@@ -747,6 +748,7 @@ h1, h2, h3, .display {
   gap: 40px;
 }
 .footer-brand .logo-word { color: var(--paper); font-size: 24px; }
+.footer-brand .footer-logo { height: 56px; width: auto; display: block; }
 .footer-brand p { font-size: 14px; margin-top: 14px; max-width: 30ch; color: rgba(250,248,244,0.7); }
 .footer-contact { margin-top: 18px; }
 .footer-contact a { display: block; font-size: 14px; padding: 3px 0; color: rgba(250,248,244,0.78); }

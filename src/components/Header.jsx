@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { COMPANY } from '../data/company.js';
+import logoPrimary from '../assets/logo-primary.svg';
 
 export default function Header() {
   const navClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`;
@@ -13,8 +14,7 @@ export default function Header() {
       </div>
       <div className="header-inner">
         <Link to="/" className="logo" aria-label="Coco Drapes home">
-          <span className="logo-word">COCO <span>Drapes</span></span>
-          <span className="brand-rule" />
+          <img src={logoPrimary} alt="Coco — Drapes &amp; Curtains" />
         </Link>
 
         <nav className="main-nav" aria-label="Primary">

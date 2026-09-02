@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { COMPANY } from '../data/company.js';
+import logoWhite from '../assets/logo-white.svg';
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="brand-rule" />
       <div className="footer-inner">
         <div className="footer-brand">
-          <span className="logo-word">COCO <span style={{ fontWeight: 400, fontStyle: 'italic' }}>Drapes</span></span>
+          <img src={logoWhite} alt="Coco — Drapes &amp; Curtains" className="footer-logo" />
           <p>
             Custom drapery, roman shades, and upholstery, handcrafted with
             care. Every home is different. Celebrate yours.
