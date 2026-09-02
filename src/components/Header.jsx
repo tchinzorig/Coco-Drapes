@@ -14,7 +14,7 @@ export default function Header() {
       </div>
       <div className="header-inner">
         <Link to="/" className="logo" aria-label="Coco Drapes home">
-          <img src={logoPrimary} alt="Coco — Drapes &amp; Curtains" />
+          <img src={logoPrimary} alt="Coco Drapes &amp; Curtains" />
         </Link>
 
         <nav className="main-nav" aria-label="Primary">

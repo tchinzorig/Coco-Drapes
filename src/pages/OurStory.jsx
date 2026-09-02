@@ -27,7 +27,7 @@ const PLEDGE_STEPS = [
     Art: GiveArt,
   },
   {
-    title: 'They Thrive',
+    title: 'Families Get Support',
     text: 'Your contribution funds therapy access, family support, and inclusive education for autistic people.',
     Art: ThriveArt,
   },
@@ -37,7 +37,7 @@ const VALUES = [
   {
     hue: 'var(--hue-red)',
     title: 'Built With Purpose',
-    text: 'Coco Drapes exists in direct support of people and kids with autism. It is not a side program. It is why the company was founded.',
+    text: 'Coco Drapes exists in direct support of people and kids with autism. Supporting them is the reason the company was founded.',
   },
   {
     hue: 'var(--hue-orange)',
@@ -47,11 +47,11 @@ const VALUES = [
   {
     hue: 'var(--hue-green)',
     title: 'You Direct the Giving',
-    text: 'We don\u2019t pick for you. Every customer chooses which autism foundation their 5% supports, so the impact reflects the causes closest to your heart.',
+    text: 'We don\u2019t pick for you. Every customer chooses which autism foundation their 5% supports, so your money goes to the cause you care about most.',
   },
   {
     hue: 'var(--hue-blue)',
-    title: 'Transparent, Always',
+    title: 'We Show Our Math',
     text: 'The pledge is simple math: 5% of each sale\u2019s revenue. We report our giving openly, so you always know your order made a difference.',
   },
 ];
@@ -97,7 +97,7 @@ export default function OurStory() {
             marginBottom: 28,
           }}>
             Coco Drapes was built in direct support of people and kids with autism.
-            <em style={{ fontWeight: 400 }}> Every window we dress helps a family, a classroom, a future.</em>
+            <em style={{ fontWeight: 400 }}> Every window we dress helps support autistic kids and their families.</em>
           </p>
 
           {/* Family illustration */}
@@ -113,22 +113,20 @@ export default function OurStory() {
             fontSize: 13, color: 'var(--ink-faint)', textAlign: 'center',
             marginBottom: 32, letterSpacing: '0.04em',
           }}>
-            Every home deserves calm, comfort, and joy. That&rsquo;s who we sew for.
+            Every home deserves to feel calm and comfortable. That&rsquo;s what we sew for.
           </p>
 
           <p style={{ color: 'var(--ink-soft)', marginBottom: 18 }}>
-            For many autistic children and adults, home is more than a place. It&rsquo;s a
-            sanctuary. The right room can calm an overwhelming day: soft, filtered light
-            instead of harsh glare; gentle fabric instead of hard edges; a quiet,
-            comfortable space that feels safe. That belief in the power of a calm home is
-            where Coco Drapes began, and it&rsquo;s who we sew for.
+            For many autistic children and adults, home is a sanctuary. The right
+            room can calm an overwhelming day: soft filtered light, gentle
+            fabrics, and a quiet, comfortable space that feels safe. That belief
+            in a calm home is where Coco Drapes began.
           </p>
           <p style={{ color: 'var(--ink-soft)' }}>
             So we made giving part of the product itself. <strong style={{ fontWeight: 500, color: 'var(--ink)' }}>
             5% of the revenue from every sale goes to an autism foundation, and you, the
-            customer, pick which one.</strong> When you order from us, you&rsquo;re not just
-            dressing a window. You&rsquo;re funding therapy hours, family resources,
-            inclusive classrooms, and brighter futures for autistic people.
+            customer, pick which one.</strong> Every order helps fund therapy hours,
+            family resources, and inclusive classrooms for autistic people.
           </p>
         </div>
       </section>
@@ -171,7 +169,7 @@ export default function OurStory() {
         <div className="container">
           <div className="section-head">
             <div className="eyebrow">What We Stand For</div>
-            <h2>Beautiful windows, meaningful impact</h2>
+            <h2>Four things we promise</h2>
             <hr className="brand-rule brand-rule--thin" />
           </div>
           <div className="category-grid">
@@ -251,11 +249,11 @@ function CareersSection() {
       <div className="container" style={{ maxWidth: 720 }}>
         <div className="section-head" style={{ marginBottom: 40 }}>
           <div className="eyebrow">Careers</div>
-          <h2>Work with purpose. Join our team.</h2>
+          <h2>Come work with us</h2>
           <p>
-            Coco Drapes is more than a window treatment company. It&rsquo;s a mission.
-            If you want your work in sales or management to directly support people and
-            kids with autism, we&rsquo;d love to hear from you.
+            Coco Drapes was founded on a mission. If you want your work in
+            sales or management to directly support people and kids with
+            autism, we&rsquo;d love to hear from you.
           </p>
           <hr className="brand-rule brand-rule--thin" />
         </div>

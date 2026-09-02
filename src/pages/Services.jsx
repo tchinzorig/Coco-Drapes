@@ -17,13 +17,13 @@ const SERVICES = [
     hue: 'var(--hue-red)',
     Icon: BlindIcon,
     title: 'Blind Cleaning & Repair',
-    text: 'Venetian, vertical, wood, and cellular — deep-cleaned, with tilt, cord, and slat repairs.',
+    text: 'Venetian, vertical, wood, and cellular blinds, deep-cleaned, with tilt, cord, and slat repairs.',
   },
   {
     hue: 'var(--hue-orange)',
     Icon: DraperyIcon,
     title: 'Drapery Cleaning & Repair',
-    text: 'Every fabric from linen to silk — gentle cleaning plus hem, pleat, lining, and hardware repairs.',
+    text: 'Gentle cleaning for every fabric from linen to silk, plus hem, pleat, lining, and hardware repairs.',
   },
   {
     hue: 'var(--hue-blue)',
@@ -35,7 +35,7 @@ const SERVICES = [
     hue: 'var(--hue-violet)',
     Icon: GarmentIcon,
     title: 'Clothing Alterations',
-    text: 'Haute couture to everyday denim — hemming, resizing, and repairs with couture-level care.',
+    text: 'Hemming, resizing, and careful repairs for everything from haute couture to everyday denim.',
   },
 ];
 
@@ -96,7 +96,7 @@ export default function Services() {
     setSending(true);
     try {
       await sendFormEmail(
-        `Service request — ${form.firstName} ${form.lastName}`,
+        `Service request from ${form.firstName} ${form.lastName}`,
         {
           'Request Type': 'Cleaning & Repair',
           'Services': serviceLabels,
@@ -157,9 +157,9 @@ export default function Services() {
           <p style={{ color: 'var(--ink-soft)', marginTop: 12, maxWidth: '58ch' }}>
             Beyond making new window treatments, we keep the things you already
             love beautiful. We clean and repair blinds, draperies, and roman
-            shades — and our tailors alter clothing of every kind, from haute
-            couture to your favorite jeans. All in our workroom, by the same
-            hands that sew our custom pieces.
+            shades, and our tailors alter clothing of every kind, from haute
+            couture to your favorite jeans. Everything happens in our own
+            workroom, by the same hands that sew our custom pieces.
           </p>
           <hr className="brand-rule brand-rule--thin" />
         </div>

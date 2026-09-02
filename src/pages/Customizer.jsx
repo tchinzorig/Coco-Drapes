@@ -163,8 +163,8 @@ export default function Customizer() {
             }
           : {}),
       'Free Onsite Measurement': consult === 'yes'
-        ? `Yes \u2014 wants onsite ${isUpholstery ? 'assessment' : 'measurement'} & consultation`
-        : 'No \u2014 provided own measurements',
+        ? `Yes, wants onsite ${isUpholstery ? 'assessment' : 'measurement'} & consultation`
+        : 'No, provided own measurements',
       ...(consult === 'no' ? { 'Measurements': measurements } : {}),
       [isUpholstery ? 'Piece Count' : 'Window Count']: windowCount,
       'First Name': contact.firstName,
@@ -178,7 +178,7 @@ export default function Customizer() {
     setSending(true);
     try {
       await sendFormEmail(
-        `Quote request \u2014 ${treatment.label} \u2014 ${contact.firstName} ${contact.lastName} (${contact.city})`,
+        `Quote request from ${contact.firstName} ${contact.lastName} in ${contact.city} (${treatment.label})`,
         details
       );
       setQuoteOpen(true);
@@ -216,7 +216,7 @@ export default function Customizer() {
           <p className="sub">
             {treatmentId === 'drapery' && 'Made-to-measure panels, sewn to the quarter inch.'}
             {treatmentId === 'roman' && 'Clean-folding shades, built for your exact window.'}
-            {isUpholstery && 'Furniture you love, reborn in fabric you choose.'}
+            {isUpholstery && 'Your favorite furniture, recovered in fabric you choose.'}
           </p>
 
           {/* Treatment switcher */}
@@ -427,7 +427,7 @@ export default function Customizer() {
               <TapeIcon size={28} />
               <p>
                 <strong>New to measuring?</strong> Our illustrated guide shows
-                exactly where to run the tape — most measuring takes about ten minutes.
+                exactly where to run the tape. Most measuring takes about ten minutes.
               </p>
               <Link
                 to={`/measuring-help#${treatmentId}`}
@@ -513,7 +513,7 @@ export default function Customizer() {
                   onChange={(e) => setContact((c) => ({ ...c, city: e.target.value }))}
                   placeholder="e.g. Burlingame" autoComplete="address-level2" />
                 <p style={{ fontSize: 12.5, color: 'var(--ink-faint)', margin: '6px 0 0' }}>
-                  City only — we don’t need your street address to prepare a quote.
+                  City only. We don’t need your street address to prepare a quote.
                 </p>
               </div>
             </div>

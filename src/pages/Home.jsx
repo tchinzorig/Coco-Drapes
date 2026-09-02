@@ -79,7 +79,7 @@ const HOME_SERVICES = [
     hue: 'var(--hue-violet)',
     Icon: GarmentIcon,
     title: 'Clothing Alterations',
-    text: 'Hemming, tailoring, and repairs — from couture gowns to your favorite jeans.',
+    text: 'Hemming, tailoring, and repairs, from couture gowns to your favorite jeans.',
   },
 ];
 
@@ -122,7 +122,7 @@ export default function Home() {
       <div className="value-strip">
         <div><strong>Handcrafted</strong><span>Sewn to order in our workroom</span></div>
         <div><strong>Free Shipping</strong><span>On every custom order</span></div>
-        <div><strong>10-Day Turnaround</strong><span>From loom to your door</span></div>
+        <div><strong>10-Day Turnaround</strong><span>From order to your door</span></div>
         <div><strong>Fit Guarantee</strong><span>Remade free if it doesn't fit</span></div>
       </div>
 
@@ -132,7 +132,7 @@ export default function Home() {
           <div className="section-head">
             <div className="eyebrow">What We Make</div>
             <h2>Tailored for your home</h2>
-            <p>Three signatures, endless combinations. Start with a style, make it entirely yours.</p>
+            <p>Start with a style, then make it entirely yours.</p>
             <hr className="brand-rule brand-rule--thin" />
           </div>
           <div className="category-grid">
@@ -197,7 +197,7 @@ export default function Home() {
           <div className="section-head">
             <div className="eyebrow">How It Works</div>
             <h2>From your screen to your window</h2>
-            <p>A considered process, made simple.</p>
+            <p>Four easy steps, start to finish.</p>
             <hr className="brand-rule brand-rule--thin" />
           </div>
           <div className="steps-grid">
@@ -220,7 +220,7 @@ export default function Home() {
             <h2>We also clean, repair &amp; alter</h2>
             <p>
               Already have things you love? We service all types of blinds,
-              draperies, and roman shades — and alter clothing from haute
+              draperies, and roman shades, and we alter clothing from haute
               couture to everyday denim.
             </p>
             <hr className="brand-rule brand-rule--thin" />

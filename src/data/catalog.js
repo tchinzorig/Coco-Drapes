@@ -99,7 +99,7 @@ export const TREATMENTS = {
       {
         id: 'up-ottoman',
         label: 'Ottoman & Bench',
-        description: 'Ottomans, benches, and stools — tailored tight or tufted.',
+        description: 'Ottomans, benches, and stools, tailored tight or tufted.',
         priceModifier: 0.7,
       },
       {

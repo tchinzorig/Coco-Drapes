@@ -39,7 +39,7 @@ const TOOLS = [
   {
     Icon: ClockIcon,
     title: 'Ten quiet minutes',
-    text: 'Unhurried measuring is accurate measuring.',
+    text: 'Take your time and the numbers come out right.',
   },
 ];
 
@@ -47,12 +47,12 @@ const GOLDEN_RULES = [
   {
     hue: 'var(--hue-red)',
     title: 'Width first, then height.',
-    text: 'Always record measurements as width × height — it’s the order our workroom (and our design form) expects.',
+    text: 'Always write measurements as width × height. That is the order our workroom and our design form expect.',
   },
   {
     hue: 'var(--hue-orange-deep)',
     title: 'Measure to the nearest ⅛ inch.',
-    text: 'Custom means custom. Read the tape carefully and keep the fraction — never round to “close enough.”',
+    text: 'Read the tape carefully and keep the fraction. Rounding to “close enough” is the most common measuring mistake we see.',
   },
   {
     hue: 'var(--hue-green-deep)',
@@ -69,8 +69,8 @@ const GOLDEN_RULES = [
     title: 'When in doubt, ask.',
     text: (
       <>
-        Onsite measurement is free — choose “Yes” at the measurement step in
-        the design studio and we’ll handle it all. Or call us at {PHONE_LINK}.
+        Onsite measurement is free. Choose “Yes” at the measurement step in
+        the design studio and we’ll take care of the rest, or call us at {PHONE_LINK}.
       </>
     ),
   },
@@ -80,20 +80,20 @@ const DRAPERY_STEPS = [
   {
     hue: '#4c6579',
     badge: 'A',
-    title: 'Width — measure the rod, not just the window.',
-    text: 'Measure your window’s width including the trim, then plan for the rod to extend 4–8″ past the frame on each side. That lets the open panels stack against the wall instead of the glass, so you keep your light — and the window looks larger. Record the full rod width, end to end.',
+    title: 'Width: measure the rod, not just the window.',
+    text: 'Measure your window’s width including the trim, then plan for the rod to extend 4–8″ past the frame on each side. That lets the open panels stack against the wall instead of the glass, so you keep your light and the window looks larger. Write down the full rod width, end to end.',
   },
   {
     hue: '#57644a',
     badge: 'B',
-    title: 'Height — from the rod down to the floor.',
-    text: 'Rods usually sit 4–6″ above the frame (or higher for extra drama — halfway to the ceiling is lovely). Measure from where the rod will hang straight down to the floor, in two or three spots. Floors are rarely perfectly level, so keep the smallest number — that way panels never drag.',
+    title: 'Height: from the rod down to the floor.',
+    text: 'Rods usually sit 4–6″ above the frame, or higher if you like a taller look. Measure from where the rod will hang straight down to the floor, in two or three spots. Floors are rarely perfectly level, so keep the smallest number and your panels will never drag.',
   },
   {
     hue: '#96631f',
     badge: 'C',
     title: 'Choose how the hem meets the floor.',
-    text: 'This is taste, not math. Float is the easiest to live with; break is tailored; puddle is romantic. Jot your favorite next to your measurements — “48⅛″ × 72″ — break” — or simply tell your associate when they call: every submission gets a personal follow-up.',
+    text: 'There is no wrong answer here, just the look you prefer. Float is the easiest to live with, break is more tailored, and puddle is the most romantic. Note your favorite next to your measurements, like “48⅛″ × 72″, break hem”, or simply tell your associate when they call.',
   },
 ];
 
@@ -104,7 +104,7 @@ const HEM_OPTIONS = [
 ];
 
 const REASSURE = [
-  { hue: 'var(--hue-green)', title: 'Fit guarantee', text: 'If it doesn’t fit, we remake it free. Your tape measure carries no risk.' },
+  { hue: 'var(--hue-green)', title: 'Fit guarantee', text: 'If it doesn’t fit, we remake it free. No questions asked.' },
   { hue: 'var(--hue-blue)', title: 'We double-check', text: 'An associate reviews every measurement you send before anything is cut.' },
   {
     hue: 'var(--hue-red)',
@@ -112,7 +112,7 @@ const REASSURE = [
     text: (
       <>
         Prefer not to measure at all? Choose “Yes” in the design studio, or
-        call {PHONE_LINK} — we’ll come to you.
+        call {PHONE_LINK} and we’ll come to you.
       </>
     ),
   },
@@ -136,7 +136,7 @@ export default function MeasuringHelp() {
       {/* Page header */}
       <div className="container">
         <div className="page-title">
-          <div className="eyebrow">You’ve Got This</div>
+          <div className="eyebrow">A Friendly Guide</div>
           <h1>Measuring Help</h1>
           <hr className="brand-rule brand-rule--thin" />
         </div>
@@ -151,16 +151,16 @@ export default function MeasuringHelp() {
             lineHeight: 1.45,
             marginBottom: 18,
           }}>
-            Measuring for custom window treatments — or a favorite piece of
-            furniture — sounds intimidating.
-            <em style={{ fontWeight: 400 }}> It isn’t.</em> If you can read a
-            tape measure, you can do this.
+            Measuring for custom window treatments, or a favorite piece of
+            furniture, is easier than most people expect.
+            <em style={{ fontWeight: 400 }}> If you can read a tape measure,
+            you can do this.</em>
           </p>
           <p style={{ color: 'var(--ink-soft)', marginBottom: 40 }}>
             Most windows take about ten minutes, and this guide shows you exactly
-            where to run the tape. And remember: every order is covered by our fit
-            guarantee, so a nervous first-timer and a seasoned pro end up in the
-            same place — with treatments that fit beautifully.
+            where to run the tape. Every order is also covered by our fit
+            guarantee, so even if this is your first time measuring anything,
+            your treatments will fit.
           </p>
 
           <div className="opt-label" style={{ marginBottom: 16 }}><span>What you’ll need</span></div>
@@ -237,8 +237,8 @@ export default function MeasuringHelp() {
             <h2>First, pick where the shade will live</h2>
             <p>
               Roman shades mount one of two ways, and each is measured a little
-              differently. Neither is harder — they’re just different tapes
-              to run.
+              differently. Neither one is harder. They just use different
+              steps.
             </p>
             <hr className="brand-rule brand-rule--thin" />
           </div>
@@ -257,7 +257,7 @@ export default function MeasuringHelp() {
                   <span className="mstep-badge" style={{ background: '#96631f' }}>W</span>
                   <div>
                     <strong>Width, in three places.</strong>
-                    <p>Measure the exact opening at the top, middle, and bottom. Keep the <em>smallest</em> number — openings are rarely perfect rectangles.</p>
+                    <p>Measure the exact opening at the top, middle, and bottom. Keep the <em>smallest</em> number, since openings are rarely perfect rectangles.</p>
                   </div>
                 </li>
                 <li>
@@ -270,7 +270,7 @@ export default function MeasuringHelp() {
                 <li>
                   <span className="mstep-badge" style={{ background: '#4c6579' }}>✓</span>
                   <div>
-                    <strong>That’s it — no subtracting.</strong>
+                    <strong>No subtracting needed.</strong>
                     <p>Send the exact opening size. Our workroom makes the small clearance allowance so the shade glides without rubbing.</p>
                   </div>
                 </li>
@@ -283,8 +283,8 @@ export default function MeasuringHelp() {
               <div className="mc-tag">Mounts on the wall or trim</div>
               <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', marginBottom: 16 }}>
                 The shade overlaps the frame, blocking more light and making a
-                small window feel grander. No depth needed — great for shallow
-                frames.
+                small window feel grander. It needs no frame depth at all,
+                which makes it the right choice for shallow frames.
               </p>
               <ol className="mstep-list mstep-list--tight">
                 <li>
@@ -298,14 +298,14 @@ export default function MeasuringHelp() {
                   <span className="mstep-badge" style={{ background: '#57644a' }}>H</span>
                   <div>
                     <strong>Height of the area to cover.</strong>
-                    <p>Start 3–4″ above the opening (where the headrail will sit) and measure down to the sill — or below it, if you’d like fuller coverage.</p>
+                    <p>Start 3–4″ above the opening, where the headrail will sit, and measure down to the sill. Go below the sill if you’d like fuller coverage.</p>
                   </div>
                 </li>
                 <li>
                   <span className="mstep-badge" style={{ background: '#4c6579' }}>✓</span>
                   <div>
                     <strong>Record that overall W × H.</strong>
-                    <p>The shade will be made exactly the size you give us — the whole covered area, frame and all.</p>
+                    <p>The shade will be made exactly the size you give us: the whole covered area, frame and all.</p>
                   </div>
                 </li>
               </ol>
@@ -316,11 +316,12 @@ export default function MeasuringHelp() {
             maxWidth: 640, margin: '36px auto 0', textAlign: 'center',
             fontSize: 14.5, color: 'var(--ink-faint)',
           }}>
-            Torn between the two? Deep frame and lovely trim: go inside. Shallow
-            frame, small window, or maximum light block: go outside. Or simply
-            pick the one that looks right in the design studio — an associate
-            follows up on every submission, so you can ask for advice then.
-            Nothing is cut until we’ve confirmed together.
+            Not sure which to pick? A deep frame with pretty trim usually
+            calls for inside mount. A shallow frame, a small window, or a dark
+            bedroom usually calls for outside mount. You can also just pick
+            the one that looks right in the design studio. An associate
+            follows up on every submission, so you can ask for advice then,
+            and nothing is cut until we’ve confirmed together.
           </p>
         </div>
       </section>
@@ -332,9 +333,9 @@ export default function MeasuringHelp() {
             <div className="eyebrow">Custom Upholstery</div>
             <h2>Three numbers tell the story</h2>
             <p>
-              Furniture is the most forgiving of all. Your numbers only need to
-              be close — we confirm every detail with you before any fabric
-              is cut.
+              Furniture is the most forgiving of all. Your numbers only need
+              to be close, because we confirm every detail with you before
+              any fabric is cut.
             </p>
             <hr className="brand-rule brand-rule--thin" />
           </div>
@@ -345,21 +346,21 @@ export default function MeasuringHelp() {
               <li>
                 <span className="mstep-badge" style={{ background: '#96631f' }}>W</span>
                 <div>
-                  <strong>Width — arm to arm.</strong>
+                  <strong>Width: arm to arm.</strong>
                   <p>Measure straight across the widest point, usually from the outside of one arm to the outside of the other.</p>
                 </div>
               </li>
               <li>
                 <span className="mstep-badge" style={{ background: '#57644a' }}>H</span>
                 <div>
-                  <strong>Height — floor to the top.</strong>
+                  <strong>Height: floor to the top.</strong>
                   <p>From the floor straight up to the highest point of the back.</p>
                 </div>
               </li>
               <li>
                 <span className="mstep-badge" style={{ background: '#4c6579' }}>D</span>
                 <div>
-                  <strong>Depth — front to back.</strong>
+                  <strong>Depth: front to back.</strong>
                   <p>Along the side of the piece, from the front edge straight back to the rear.</p>
                 </div>
               </li>
@@ -367,7 +368,7 @@ export default function MeasuringHelp() {
                 <span className="mstep-badge" style={{ background: '#55514a' }}>✓</span>
                 <div>
                   <strong>Add the details that matter.</strong>
-                  <p>Say what the piece is — “wingback armchair” tells our workroom more than any number — and count loose cushions. A couple of photos on your phone help too, for when your associate calls.</p>
+                  <p>Tell us what the piece is. “Wingback armchair” says more to our workroom than any number. Count the loose cushions too, and a couple of photos on your phone help when your associate calls.</p>
                 </div>
               </li>
             </ol>
@@ -384,15 +385,15 @@ export default function MeasuringHelp() {
             <hr className="brand-rule brand-rule--thin" />
           </div>
           <div className="notation-card">
-            Living room — Window 1: 48⅛″ × 72″ — break hem<br />
-            Living room — Window 2: 47⅞″ × 72¼″<br />
-            Bedroom — Window 3: 36″ × 60″<br />
-            Den — Armchair: 34″W × 36″D × 32″H
+            Living room, Window 1: 48⅛″ × 72″ (break hem)<br />
+            Living room, Window 2: 47⅞″ × 72¼″<br />
+            Bedroom, Window 3: 36″ × 60″<br />
+            Den, Armchair: 34″W × 36″D × 32″H
           </div>
           <p style={{ fontSize: 14, color: 'var(--ink-faint)', textAlign: 'center', marginTop: 16 }}>
-            Width first, then height — and for furniture, width × depth ×
-            height — exactly the format the design studio asks for. Naming the
-            room helps you (and us) keep multi-piece orders straight.
+            Width first, then height. For furniture it goes width, depth, then
+            height. That matches the format the design studio asks for, and
+            naming the room helps everyone keep multi-piece orders straight.
           </p>
         </div>
       </section>
@@ -402,7 +403,7 @@ export default function MeasuringHelp() {
         <div className="container" style={{ maxWidth: 880 }}>
           <div className="section-head" style={{ marginBottom: 44 }}>
             <h2>Whatever you measure, you’re covered</h2>
-            <p>There’s no way to get this wrong that we can’t make right.</p>
+            <p>If a number is off, we make it right at no charge.</p>
           </div>
           <div className="steps-grid" style={{ marginBottom: 48 }}>
             {REASSURE.map((r) => (
@@ -422,8 +423,8 @@ export default function MeasuringHelp() {
             textAlign: 'center', fontSize: 13, marginTop: 22,
             color: 'rgba(250,248,244,0.6)',
           }}>
-            Opened this guide from the design studio? Your design is waiting
-            safely in the other tab.
+            Opened this guide from the design studio? Your design is still
+            open in the other tab.
           </p>
         </div>
       </section>

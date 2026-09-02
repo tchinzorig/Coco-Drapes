@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="brand-rule" />
       <div className="footer-inner">
         <div className="footer-brand">
-          <img src={logoWhite} alt="Coco — Drapes &amp; Curtains" className="footer-logo" />
+          <img src={logoWhite} alt="Coco Drapes &amp; Curtains" className="footer-logo" />
           <p>
             Custom drapery, roman shades, and upholstery, handcrafted with
             care. Every home is different. Celebrate yours.
