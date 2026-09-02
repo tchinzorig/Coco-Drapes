@@ -86,6 +86,22 @@ export function RomanIcon({ color }) {
   );
 }
 
+export function GarmentIcon({ color }) {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      {/* hanger */}
+      <path d="M20 4 a2.5 2.5 0 1 1 2.5 -2.5" stroke={color} strokeWidth="2" strokeLinecap="round" transform="translate(0 3)" fill="none" />
+      <path d="M20 8 L6 15 H34 Z" fill={color} opacity="0.85" />
+      {/* dress */}
+      <path d="M14 15 L26 15 L24.5 21 Q30 32 28 36 L12 36 Q10 32 15.5 21 Z" fill={color} />
+      <path d="M17 21 Q20 23.5 23 21" stroke="#fff" strokeWidth="1.4" opacity="0.5" fill="none" />
+      <path d="M16 28 Q20 30 24 28" stroke="#fff" strokeWidth="1.4" opacity="0.4" fill="none" />
+      {/* stitch marks */}
+      <path d="M13.5 33 H26.5" stroke="#fff" strokeWidth="1.4" strokeDasharray="2 2.5" opacity="0.6" />
+    </svg>
+  );
+}
+
 /* Small heart mark for the pledge band. */
 export function HeartMark({ color = 'var(--hue-red)', size = 30 }) {
   return (

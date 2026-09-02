@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { BlindIcon, DraperyIcon, RomanIcon } from '../components/Icons.jsx';
+import { BlindIcon, DraperyIcon, RomanIcon, GarmentIcon } from '../components/Icons.jsx';
 import { COMPANY } from '../data/company.js';
 import { sendFormEmail } from '../utils/sendForm.js';
 
 /**
- * Services — cleaning & repair.
+ * Services — cleaning, repair & clothing alterations.
  * Coco Drapes cleans and repairs all types of blinds, draperies of different
- * fabrics, and roman shades. Below the service overview is an intake form:
+ * fabrics, and roman shades, and alters clothing from haute couture to
+ * everyday denim. Below the service overview is an intake form:
  * first/last name, email, and phone are required (red asterisks), at least
  * one service checkbox is required, and an optional details textbox.
  */
@@ -30,6 +31,12 @@ const SERVICES = [
     title: 'Roman Shade Cleaning & Repair',
     text: 'Gentle cleaning, re-stringing, and fold restoration so shades raise evenly again.',
   },
+  {
+    hue: 'var(--hue-violet)',
+    Icon: GarmentIcon,
+    title: 'Clothing Alterations',
+    text: 'Haute couture to everyday denim — hemming, resizing, and repairs with couture-level care.',
+  },
 ];
 
 const SERVICE_OPTIONS = [
@@ -39,6 +46,7 @@ const SERVICE_OPTIONS = [
   { id: 'drapery-repair', label: 'Drapery repair' },
   { id: 'roman-cleaning', label: 'Roman shade cleaning' },
   { id: 'roman-repair', label: 'Roman shade repair' },
+  { id: 'clothing-alteration', label: 'Clothing alterations' },
 ];
 
 const REQ_STAR = (
@@ -147,9 +155,11 @@ export default function Services() {
           <div className="eyebrow">Care &amp; Restoration</div>
           <h1>Services</h1>
           <p style={{ color: 'var(--ink-soft)', marginTop: 12, maxWidth: '58ch' }}>
-            Beyond making new window treatments, we keep your existing ones beautiful.
-            We clean and repair all types of blinds, draperies of every fabric, and
-            roman shades in our workroom, with the same hands that sew our custom pieces.
+            Beyond making new window treatments, we keep the things you already
+            love beautiful. We clean and repair blinds, draperies, and roman
+            shades — and our tailors alter clothing of every kind, from haute
+            couture to your favorite jeans. All in our workroom, by the same
+            hands that sew our custom pieces.
           </p>
           <hr className="brand-rule brand-rule--thin" />
         </div>

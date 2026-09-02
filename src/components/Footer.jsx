@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h4>Support</h4>
-          <Link to="/services">Cleaning &amp; Repair</Link>
+          <Link to="/services">Cleaning, Repair &amp; Alterations</Link>
           <Link to="/measuring-help">Measuring Help</Link>
           <a href={COMPANY.phoneHref}>Call {COMPANY.phoneDisplay}</a>
           <a href={`mailto:${COMPANY.email}`}>Contact Us</a>

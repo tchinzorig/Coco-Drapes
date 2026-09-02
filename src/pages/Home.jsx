@@ -3,7 +3,7 @@ import WindowPreview from '../components/WindowPreview.jsx';
 import FurniturePreview from '../components/FurniturePreview.jsx';
 import {
   DesignIcon, MeasureIcon, SewIcon, InstallIcon,
-  BlindIcon, DraperyIcon, RomanIcon, HeartMark,
+  BlindIcon, DraperyIcon, RomanIcon, GarmentIcon, HeartMark,
 } from '../components/Icons.jsx';
 
 const HERO_CONFIG = {
@@ -74,6 +74,12 @@ const HOME_SERVICES = [
     Icon: RomanIcon,
     title: 'Roman Shade Cleaning & Repair',
     text: 'Gentle cleaning, re-stringing, and fold restoration for roman shades.',
+  },
+  {
+    hue: 'var(--hue-violet)',
+    Icon: GarmentIcon,
+    title: 'Clothing Alterations',
+    text: 'Hemming, tailoring, and repairs — from couture gowns to your favorite jeans.',
   },
 ];
 
@@ -211,10 +217,11 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <div className="eyebrow">Care &amp; Restoration</div>
-            <h2>We also clean and repair</h2>
+            <h2>We also clean, repair &amp; alter</h2>
             <p>
-              Already have window treatments you love? We service all types of
-              blinds, draperies, and roman shades.
+              Already have things you love? We service all types of blinds,
+              draperies, and roman shades — and alter clothing from haute
+              couture to everyday denim.
             </p>
             <hr className="brand-rule brand-rule--thin" />
           </div>
